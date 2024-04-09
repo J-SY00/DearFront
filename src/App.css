@@ -1,35 +1,36 @@
-.App{
-  background: #8293B7;
+/* 기본 스타일 */
+.App {
+  background: #c6d2ed;
   height: 100vh;
 }
 
-.header{
+.header {
   height: 3rem;
   display: flex;
   justify-content: flex-end;
-  padding-right: 1rem;
+  padding-right: 7.5rem;
   padding-top: 1rem;
 }
 
-.header>button, .send{
+.header > button, .send {
   width: 100px;
   height: 50px;
   border-radius: 5rem;
+  border: 1px solid black;
 }
 
-.main{
+.main {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 1rem;
 }
 
-.chats{
-  overflow: hidden;
+.chats {
   overflow-y: scroll;
   scroll-behavior: smooth;
   width: 100%;
-  max-width: 80rem;
+  max-width: 70rem;
   margin: 0 5rem;
   height: calc(100vh - 15rem);
 }
@@ -38,7 +39,7 @@
   display: none;
 }
 
-.chat{
+.chat {
   margin: 1rem;
   padding: 2rem 3rem;
   font-size: 1.25rem;
@@ -47,23 +48,25 @@
   text-align: justify;
 }
 
-.user{
-  margin-left: auto;
-  width: calc(100% - 10rem);
+.user, .bot {
+  width: calc(100% - 8rem);
+  border: 1px solid black;
+  background: #eaeaea;
+}
+
+.user {
+  /* margin-left: auto; */
   border-radius: 2rem 0rem 2rem 2rem;
-  background: linear-gradient(to left, #EAEAEA, #A8A2A2);
-  border: 1px solid black ;
+  background: linear-gradient(to left, #eaeaea, #a8a2a2);
 }
 
-.bot{
-  margin-right: auto;
-  width: calc(100% - 10rem);
+.bot {
+  /* margin-right: auto; */
   border-radius: 0rem 2rem 2rem 2rem;
-  background: linear-gradient(to right, #EAEAEA, #A8A2A2);
-  border: 1px solid black ;
+  background: linear-gradient(to right, #eaeaea, #a8a2a2);
 }
 
-.chatFooter{
+.chatFooter {
   position: absolute;
   bottom: 3%;
   width: 100%;
@@ -73,17 +76,17 @@
   justify-content: center;
 }
 
-.inp{
+.inp {
   padding: 0.5rem;
   background: transparent;
   display: flex;
   align-items: center;
   border-radius: 2rem;
   width: calc(100% - 15rem);
-  border: 1px solid black ;
+  border: 1px solid black;
 }
 
-.inp>input{
+.inp > input {
   width: calc(100% - 3rem);
   outline: none;
   padding: 1.25rem;
@@ -93,7 +96,18 @@
   font-size: 1.2rem;
 }
 
-.chatFooter>p{
+.chatFooter > p {
   margin: 0.5rem 0;
   color: white;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .header {
+    padding-right: 1rem;
+  }
+  
+  .inp {
+    width: calc(100% - 7rem);
+  }
 }
