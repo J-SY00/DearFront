@@ -29,8 +29,7 @@
 .chats {
   overflow-y: scroll;
   scroll-behavior: smooth;
-  width: 100%;
-  max-width: 70rem;
+  width: calc(100% - 12rem);
   margin: 0 5rem;
   height: calc(100vh - 15rem);
 }
@@ -49,19 +48,16 @@
 }
 
 .user, .bot {
-  width: calc(100% - 8rem);
   border: 1px solid black;
   background: #eaeaea;
 }
 
 .user {
-  /* margin-left: auto; */
   border-radius: 2rem 0rem 2rem 2rem;
   background: linear-gradient(to left, #eaeaea, #a8a2a2);
 }
 
 .bot {
-  /* margin-right: auto; */
   border-radius: 0rem 2rem 2rem 2rem;
   background: linear-gradient(to right, #eaeaea, #a8a2a2);
 }
@@ -102,12 +98,12 @@
 }
 
 /* 반응형 디자인 */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   .header {
     padding-right: 1rem;
   }
   
-  .inp {
-    width: calc(100% - 7rem);
+  .inp, .chats {
+    width: calc(100% - 2rem);
   }
 }

@@ -3,7 +3,7 @@ import Imageupload from './Imageupload';
 import UserInput from './Input';
 
 export default function Messages( ) {
-  let [imageSelected, setImageSelected] = useState(false);
+  const [imageSelected, setImageSelected] = useState(false);
 
   return (
     <div className='main'>
@@ -17,11 +17,11 @@ export default function Messages( ) {
           </div>
 
           <div className='chat user'>
-            I'm a user
+            I'm a user  
           </div>
         </div>
       )}      
-      <UserInput imageSelected={imageSelected} />
+      <UserInput imageSelected={imageSelected}/>
     </div>
   );
 }

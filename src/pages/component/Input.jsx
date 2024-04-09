@@ -6,21 +6,21 @@ export default function Input({imageSelected}){
   const [input, setInput] = useState("");
 
   //Send 버튼 눌렀을 때
-  const handleSend = async() => {
-    console.log(input);
-    setInput('');
-  }
+  const handleSend = async () => {
+    if (imageSelected) {
+      console.log(input);
+      setInput(''); // 입력값 초기화
+    } 
+    else {
+      alert("이미지를 선택하세요");
+      setInput('');
+    }
+  };
 
   //엔터 눌렀을 때
   const handelKeyPress = (e) => {
-    if(e.key === 'Enter'){
-      if(!imageSelected){
-        alert('이미지를 선택하세요');
-        setInput(''); 
-        return;
-      }
-      console.log(input)
-      setInput('')
+    if(e.key === 'Enter' && input.trim() !== ''){
+      handleSend()
     }
   }
 
