@@ -4,7 +4,7 @@ import UploadImage from './assets/img_upload.svg';
 export default function Imageupload({ setImageSelected }) {
   const [image, setImage] = useState(false);
 
-  const handleImageChange = (e) => {
+  const handleImageSubmit = (e) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
@@ -12,22 +12,22 @@ export default function Imageupload({ setImageSelected }) {
       reader.onloadend = () => {
         setImage(reader.result);
       };
-      //이미지 선택 여부 > Messages창에서 이미지 선택하면 채팅창으로 넘어가도록
+      // 이미지 선택 됐다고 설정(Messages창에서 이미지 선택하면 채팅창으로 넘어가도록)
       setImageSelected(true);
+      // console.log("선택된 이미지 파일명", file.name);
 
-      //콘솔 창
-      console.log("선택된 이미지 파일명", file.name);
-
-      //화면에 파일 보이게...
-      // reader.readAsDataURL(file);
+      // 이미지 서버로 전송...
     }
   };
 
   return (
     <div>
-      <label htmlFor="upload-button"><img className='uploadImage' src={UploadImage} alt="Upload"/></label>
-      <input id="upload-button" type="file" style={{ display: 'none' }} onChange={handleImageChange}/>
-      {image && (<div><img src={image} alt="Uploaded" /></div>)}
+      <label htmlFor="upload-button">
+        <img className='uploadImage' src={UploadImage} alt="Upload"/>
+      </label>
+
+      {/* 파일 선택 창 */}
+      <input id="upload-button" type="file" style={{ display: 'none' }} onChange={handleImageSubmit}/>
     </div>
   );
 }
