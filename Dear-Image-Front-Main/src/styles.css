@@ -1,0 +1,109 @@
+/* 기본 스타일 */
+.App {
+  background: #c6d2ed;
+  height: 100vh;
+}
+
+.header {
+  height: 3rem;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 7.5rem;
+  padding-top: 1rem;
+}
+
+.header > button, .send {
+  width: 100px;
+  height: 50px;
+  border-radius: 5rem;
+  border: 1px solid black;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.chat-container {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  width: calc(100% - 12rem);
+  margin: 0 5rem;
+  height: calc(100vh - 15rem);
+}
+
+.chat-container::-webkit-scrollbar {
+  display: none;
+}
+
+.message-container {
+  margin: 1rem;
+  padding: 2rem 3rem;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  text-align: justify;
+}
+
+.user, .bot {
+  border: 1px solid black;
+  background: #eaeaea;
+}
+
+.user {
+  border-radius: 2rem 0rem 2rem 2rem;
+  background: linear-gradient(to left, #eaeaea, #a8a2a2);
+}
+
+.bot {
+  border-radius: 0rem 2rem 2rem 2rem;
+  background: linear-gradient(to right, #eaeaea, #a8a2a2);
+}
+
+.main-bottom {
+  position: absolute;
+  bottom: 3%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-container {
+  padding: 0.5rem;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  border-radius: 2rem;
+  width: calc(100% - 15rem);
+  border: 1px solid black;
+}
+
+.input-container > input {
+  width: calc(100% - 3rem);
+  outline: none;
+  padding: 1.25rem;
+  color: black;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.main-bottom > p {
+  margin: 0.5rem 0;
+  color: white;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1200px) {
+  .header {
+    padding-right: 1rem;
+  }
+  
+  .input-container, .chat-container {
+    width: calc(100% - 2rem);
+  }
+}
