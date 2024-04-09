@@ -1,6 +1,6 @@
 /* 기본 스타일 */
 .App {
-  background: #c6d2ed;
+  background: #8293B7;
   height: 100vh;
 }
 
@@ -17,6 +17,8 @@
   height: 50px;
   border-radius: 5rem;
   border: 1px solid black;
+  color: black;
+  background: linear-gradient(to bottom, #eaeaea, #a8a2a2);
 }
 
 .main {
@@ -27,9 +29,10 @@
 }
 
 .uploadImage{
-  width: calc(100% - 1rem);
-  height: calc(100vh - 20rem);
-  margin-top: 3rem;
+  width: calc(100% - 6rem);
+  height: calc(100vh - 40rem);
+  align-items: center;
+  margin-top: 13rem;
 }
 
 .chat-container {
@@ -80,7 +83,7 @@
 
 .input-container {
   padding: 0.5rem;
-  background: transparent;
+  background: #D9D9D9;
   display: flex;
   align-items: center;
   border-radius: 2rem;
@@ -92,14 +95,18 @@
   width: calc(100% - 3rem);
   outline: none;
   padding: 1.25rem;
-  color: black;
+  color: #111111;
   background: transparent;
   border: none;
   font-size: 1.2rem;
 }
 
 .main-bottom > p {
-  margin: 0.5rem 0;
+  position: relative;
+  margin-bottom: 0.5rem;
+  margin-left: 9rem;
+  align-self: baseline;
+  font-size: 22pt;
   color: white;
 }
 
@@ -108,8 +115,17 @@
   .header {
     padding-right: 1rem;
   }
+
+  .uploadImage {
+    min-width: 15rem;
+    min-height: 13rem;
+  }
   
   .input-container, .chat-container {
     width: calc(100% - 2rem);
+  }
+
+  .main-bottom > p {
+    margin-left: 2rem;
   }
 }
