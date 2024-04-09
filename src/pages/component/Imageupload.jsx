@@ -25,7 +25,7 @@ export default function Imageupload({ setImageSelected }) {
 
   return (
     <div>
-      <label htmlFor="upload-button"><img src={Upload} alt="Upload" width='400px' height='400px'/></label>
+      <label htmlFor="upload-button"><img className='uploadImage' src={Upload} alt="Upload" width='400px' height='400px'/></label>
       <input id="upload-button" type="file" style={{ display: 'none' }} onChange={handleImageChange}/>
       {image && (<div><img src={image} alt="Uploaded" /></div>)}
     </div>

@@ -13,15 +13,6 @@ export default function Input({imageSelected, sendMessage }){
     }
   };
 
-  //엔터 눌렀을 때
-  const handelKeyPress = (e) => {
-    if(e.key === 'Enter') {
-      const event = e; 
-      if (event.preventDefault) event.preventDefault();
-      handleSubmit(e);
-    }
-  }
-
   return (
     <div className="main-bottom">
       <p>Avaliable keyword : ColorPop, Blur, Replace</p>
@@ -30,8 +21,7 @@ export default function Input({imageSelected, sendMessage }){
           type='text' 
           placeholder='Type your message...'
           value={inputValue} 
-          onChange={(e)=>{setInputValue(e.target.value)}} 
-          onKeyDown={handelKeyPress}/>
+          onChange={(e)=>{setInputValue(e.target.value)}}/>
         <button className='send' type='submit' disabled={!imageSelected || inputValue.trim() === ''}>Send</button>
       </form>  
     </div>
