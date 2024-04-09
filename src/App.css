@@ -26,6 +26,10 @@
   padding-top: 1rem;
 }
 
+.uploadImage {
+  margin-bottom: 20rem;
+}
+
 .chat-container {
   overflow-y: scroll;
   scroll-behavior: smooth;

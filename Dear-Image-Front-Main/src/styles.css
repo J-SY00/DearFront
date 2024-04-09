@@ -26,6 +26,12 @@
   padding-top: 1rem;
 }
 
+.uploadImage{
+  width: calc(100% - 1rem);
+  height: calc(100vh - 20rem);
+  margin-top: 3rem;
+}
+
 .chat-container {
   overflow-y: scroll;
   scroll-behavior: smooth;

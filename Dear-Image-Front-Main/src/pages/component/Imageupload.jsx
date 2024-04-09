@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Upload from './assets/upload.svg';
+import UploadImage from './assets/img_upload.svg';
 
 export default function Imageupload({ setImageSelected }) {
   const [image, setImage] = useState(false);
@@ -25,7 +25,7 @@ export default function Imageupload({ setImageSelected }) {
 
   return (
     <div>
-      <label htmlFor="upload-button"><img src={Upload} alt="Upload" width='400px' height='400px'/></label>
+      <label htmlFor="upload-button"><img className='uploadImage' src={UploadImage} alt="Upload"/></label>
       <input id="upload-button" type="file" style={{ display: 'none' }} onChange={handleImageChange}/>
       {image && (<div><img src={image} alt="Uploaded" /></div>)}
     </div>
