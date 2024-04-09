@@ -1,37 +1,39 @@
 import React, {useState} from "react";
 
-export default function Input({imageSelected}){
+export default function Input({imageSelected, sendMessage }){
 
   //input 빈 문자열 선언, setInput함수로 input 값 업데이트
-  const [input, setInput] = useState("");
+  const [inputValue, setInputValue] = useState('');
 
-  //Send 버튼 눌렀을 때
-  const handleSend = async () => {
-    if (imageSelected) {
-      console.log(input);
-      setInput(''); // 입력값 초기화
-    } 
-    else {
-      alert("이미지를 선택하세요");
-      setInput('');
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (imageSelected && inputValue.trim() !== '') {
+      sendMessage(inputValue);
+      setInputValue('');
     }
   };
 
   //엔터 눌렀을 때
   const handelKeyPress = (e) => {
-    if(e.key === 'Enter' && input.trim() !== ''){
-      handleSend()
+    if(e.key === 'Enter') {
+      const event = e; 
+      if (event.preventDefault) event.preventDefault();
+      handleSubmit(e);
     }
   }
 
   return (
-    <div className="chatFooter">
+    <div className="main-bottom">
       <p>Avaliable keyword : ColorPop, Blur, Replace</p>
-        <div className='inp'>
-          <input type='text' placeholder='Send a message...' 
-          value={input} onChange={(e)=>{setInput(e.target.value)}} onKeyDown={handelKeyPress}/>
-          <button className='send' onClick={handleSend} disabled={!imageSelected || input.trim() === ''}>보내기</button>
-        </div>
+      <form onSubmit={handleSubmit} className="input-container">
+        <input 
+          type='text' 
+          placeholder='Type your message...'
+          value={inputValue} 
+          onChange={(e)=>{setInputValue(e.target.value)}} 
+          onKeyDown={handelKeyPress}/>
+        <button className='send' type='submit' disabled={!imageSelected || inputValue.trim() === ''}>Send</button>
+      </form>  
     </div>
   )
 };

@@ -26,7 +26,7 @@
   padding-top: 1rem;
 }
 
-.chats {
+.chat-container {
   overflow-y: scroll;
   scroll-behavior: smooth;
   width: calc(100% - 12rem);
@@ -34,11 +34,11 @@
   height: calc(100vh - 15rem);
 }
 
-.chats::-webkit-scrollbar {
+.chat-container::-webkit-scrollbar {
   display: none;
 }
 
-.chat {
+.message-container {
   margin: 1rem;
   padding: 2rem 3rem;
   font-size: 1.25rem;
@@ -62,7 +62,7 @@
   background: linear-gradient(to right, #eaeaea, #a8a2a2);
 }
 
-.chatFooter {
+.main-bottom {
   position: absolute;
   bottom: 3%;
   width: 100%;
@@ -72,7 +72,7 @@
   justify-content: center;
 }
 
-.inp {
+.input-container {
   padding: 0.5rem;
   background: transparent;
   display: flex;
@@ -82,7 +82,7 @@
   border: 1px solid black;
 }
 
-.inp > input {
+.input-container > input {
   width: calc(100% - 3rem);
   outline: none;
   padding: 1.25rem;
@@ -92,7 +92,7 @@
   font-size: 1.2rem;
 }
 
-.chatFooter > p {
+.main-bottom > p {
   margin: 0.5rem 0;
   color: white;
 }
@@ -103,7 +103,7 @@
     padding-right: 1rem;
   }
   
-  .inp, .chats {
+  .input-container, .chat-container {
     width: calc(100% - 2rem);
   }
 }
