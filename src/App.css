@@ -1,113 +1,207 @@
-/* 기본 스타일 */
-.App {
-  background: #c6d2ed;
-  height: 100vh;
+@import url('https://fonts.googleapis.com/css?family=Rajdhani:700');
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  background: #21375D;
 }
 
-.header {
-  height: 3rem;
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 7.5rem;
-  padding-top: 1rem;
+
+
+
+.button {
+  color: white;
+  border-color: #4B658C;
+  background: #41587F
+  width="300px"
+  height="50px"
+  padding="20px 50px"
+  
+
+
 }
 
-.header > button, .send {
-  width: 100px;
-  height: 50px;
-  border-radius: 5rem;
-  border: 1px solid black;
-}
 
-.main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 1rem;
-}
 
-.uploadImage {
-  margin-bottom: 20rem;
-}
 
-.chat-container {
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-  width: calc(100% - 12rem);
-  margin: 0 5rem;
-  height: calc(100vh - 15rem);
-}
-
-.chat-container::-webkit-scrollbar {
-  display: none;
-}
-
-.message-container {
-  margin: 1rem;
-  padding: 2rem 3rem;
-  font-size: 1.25rem;
-  display: flex;
-  align-items: flex-start;
-  text-align: justify;
-}
-
-.user, .bot {
-  border: 1px solid black;
-  background: #eaeaea;
-}
-
-.user {
-  border-radius: 2rem 0rem 2rem 2rem;
-  background: linear-gradient(to left, #eaeaea, #a8a2a2);
-}
-
-.bot {
-  border-radius: 0rem 2rem 2rem 2rem;
-  background: linear-gradient(to right, #eaeaea, #a8a2a2);
-}
-
-.main-bottom {
-  position: absolute;
-  bottom: 3%;
+.user-wrap {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  margin: 10px auto;
+  position: relative;
+  background-image: url('./img/IMG_4261');
 }
 
-.input-container {
-  padding: 0.5rem;
-  background: transparent;
-  display: flex;
-  align-items: center;
-  border-radius: 2rem;
-  width: calc(100% - 15rem);
-  border: 1px solid black;
+.user-wrap img {
+  width: 100%;
+  vertical-align: middle;
+  vertical-align: center;
+
 }
 
-.input-container > input {
-  width: calc(100% - 3rem);
-  outline: none;
-  padding: 1.25rem;
-  color: black;
-  background: transparent;
-  border: none;
-  font-size: 1.2rem;
-}
-
-.main-bottom > p {
-  margin: 0.5rem 0;
+.user-text {
+  position: absolute;
+  line-height: 1.5;
+  top:400px;
+  left: 50%;
+  width: 100%;
+  margin: 25px;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  font-family:'ypseo';
+  text-align: center;
   color: white;
 }
 
-/* 반응형 디자인 */
-@media (max-width: 1200px) {
-  .header {
-    padding-right: 1rem;
-  }
-  
-  .input-container, .chat-container {
-    width: calc(100% - 2rem);
-  }
+
+
+
+.user-text1 {
+  position: absolute;
+  line-height: 1.5;
+  top:10px;
+  left: 50%;
+  width: 100%;
+  margin: 25px;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  font-family:'ypseo';
+  text-align: center;
+  color: white;
 }
+
+
+
+.user-text2 {
+  position: absolute;
+  line-height: 1.5;
+  top:50px;
+  left: 50%;
+  width: 100%;
+  margin: 25px;
+  transform: translate(-50%, -50%);
+  font-size: 10px;
+  font-family:'ypseo';
+  text-align: center;
+  color: white;
+}
+
+
+
+
+
+
+
+
+.user-text3 {
+  position: absolute;
+  line-height: 1.5;
+  top:350px;
+
+  left: 70%;
+  width: 100%;
+  margin: 25px;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-family:'ypseo';
+  text-align: center;
+  color: white;
+}
+.user-text4 {
+  position: absolute;
+  line-height: 1.5;
+  top:370px;
+  left: 70%;
+  width: 100%;
+  margin: 25px;
+  transform: translate(-50%, -50%);
+  font-size: 10px;
+  font-family:'ypseo';
+  text-align: center;
+  color: white;
+}
+
+
+
+
+
+
+
+
+.user-text6 {
+  position: absolute;
+  line-height: 1.5;
+  top:500px;
+  left: 70%;
+  width: 100%;
+  margin: 25px;
+  transform: translate(-50%, -50%);
+  font-size: 10px;
+  font-family:'ypseo';
+  text-align: center;
+  color: white;
+}
+
+
+.user-text7 {
+  position: absolute;
+  line-height: 1.5;
+  top:700px;
+  left: 70%;
+  width: 100%;
+  margin: 25px;
+  transform: translate(-50%, -50%);
+  font-size: 10px;
+  font-family:'ypseo';
+  text-align: center;
+  color: white;
+}
+
+
+.user-text8 {
+  position: absolute;
+  line-height: 1.5;
+  top:900px;
+  left: 70%;
+  width: 100%;
+  margin: 25px;
+  transform: translate(-50%, -50%);
+  font-size: 10px;
+  font-family:'ypseo';
+  text-align: center;
+  color: white;
+}
+
+
+.user-text9 {
+  position: absolute;
+  line-height: 1.5;
+  top:1100px;
+  left: 70%;
+  width: 100%;
+  margin: 25px;
+  transform: translate(-50%, -50%);
+  font-size: 10px;
+  font-family:'ypseo';
+  text-align: center;
+  color: white;
+}
+
+
+.user-text10 {
+  position: absolute;
+  line-height: 1.5;
+  top:1300px;
+  left: 70%;
+  width: 100%;
+  margin: 25px;
+  transform: translate(-50%, -50%);
+  font-size: 10px;
+  font-family:'ypseo';
+  text-align: center;
+  color: white;
+}
+
