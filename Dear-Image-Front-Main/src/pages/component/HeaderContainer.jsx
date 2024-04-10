@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function header() {
+export default function HeaderContainer() {
   return (
     <div className='header'>
       <button>Reset</button>

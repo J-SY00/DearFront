@@ -1,12 +1,12 @@
 import React from 'react'
-import Messages from './component/Messages'
-import Header from './component/Header'
+import HeaderContainer from './component/HeaderContainer'
+import ChatConatiner from './component/ChatConatiner'
 
 export default function Chat() {
   return (
     <div className='App'>
-      <Header/>
-      <Messages/>
+      <HeaderContainer/>
+      <ChatConatiner/>
     </div>
   )
 }

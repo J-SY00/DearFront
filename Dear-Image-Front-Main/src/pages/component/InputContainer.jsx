@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Input({ imageSelected, sendMessage }) {
+export default function InputContainer({ imageSelected, sendMessage }) {
   //input 빈 문자열 선언, setInput함수로 input 값 업데이트
   const [inputValue, setInputValue] = useState("");
 

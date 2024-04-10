@@ -1,14 +1,15 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Imageupload from './Imageupload';
-import UserInput from './Input';
+import InputContainer from './InputContainer';
+import Message from './Message';
 
-export default function Messages() {
+export default function ChatConatiner() {
   const [imageSelected, setImageSelected] = useState(false);
   const [messages, setMessages] = useState([]);
   const messageContainerRef = useRef(null);
 
   const sendMessage = async (newMessage) => {
-    setMessages([...messages, {isBot: false, newMessage}]);
+
     //답변 가져오는...
     //I am a bot이라고 답장
     const response = "I am a bot!"
@@ -39,15 +40,13 @@ export default function Messages() {
       {imageSelected && (
         <div className='chat-container' ref={messageContainerRef}>
           {messages.map((message, index) => (
-            <div key={index}  className={`message-container ${message.isBot?"bot":"user"}`}>
-              {message.newMessage}
-            </div>
+            <Message key={index} message={message.newMessage} isBot={message.isBot} />
           ))}
         </div>
       )}      
 
       {/* 사용자 입력 부분 */}
-      <UserInput imageSelected={imageSelected} sendMessage={sendMessage}/>
+      <InputContainer imageSelected={imageSelected} sendMessage={sendMessage}/>
     </div>
   );
 }
