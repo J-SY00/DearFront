@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-import Imageupload from './Imageupload';
-import InputContainer from './InputContainer';
-import Message from './Message';
+import Imageupload from "./ChatImageupload"
+import InputContainer from './ChatInputContainer';
+import Message from './ChatMessage';
 
 export default function ChatConatiner() {
   const [imageSelected, setImageSelected] = useState(false);
@@ -30,7 +30,7 @@ export default function ChatConatiner() {
   }, [messages]);
 
   return (
-    <div className='main'>
+    <div className='chat-main'>
       {/* 이미지 업로드 화면 */}
       {!imageSelected && (
         <Imageupload setImageSelected={setImageSelected} />

@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function HeaderContainer() {
   return (
-    <div className='header'>
+    <div className='chat-header'>
       <button>Reset</button>
     </div>
   )

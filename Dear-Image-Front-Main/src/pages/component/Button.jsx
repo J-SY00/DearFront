@@ -1,3 +1,5 @@
+import StartBtn from "./assets/tryitnow_btn.svg"
+
 function Button({ text }) {
   return <button>{text}</button>;
 }

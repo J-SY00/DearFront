@@ -6,13 +6,8 @@ import Chat from "../Chat";
 function Header() {
   const navigate = useNavigate();
   return (
-    <header className="header">
-      <strong>Header</strong>
-      <ul>
-        <li>
-          <button onClick={() => navigate("../Chat")}>Start Now</button>
-        </li>
-      </ul>
+    <header className="home-header">
+      <button onClick={() => navigate("../Chat")}>Start Now</button>
     </header>
   );
 }

@@ -1,26 +1,18 @@
 // Home.jsx
 import React from "react";
-import Sidebar from "./component/Sidebar";
-import Header from "./component/Header.jsx";
-import HomeTutorial from "./component/HomeTutorial.jsx";
+import Sidebar from "./component/HomeSidebar"
+import Header from "./component/HomeHeader"
+import HomeTutorial from "./component/HomeTutorial"
 
-function Home() {
-  const scrollToSection = (id) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+export default function Home() {
 
   return (
     <div className="home">
       <Header />
-      <div className="container">
+      <div className="home-container">
         <Sidebar />
         <HomeTutorial />
       </div>
     </div>
   );
 }
-
-export default Home;

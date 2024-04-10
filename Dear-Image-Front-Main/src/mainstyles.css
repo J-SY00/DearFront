@@ -1,7 +1,12 @@
 /* 기본 스타일 */
 .App {
   background: #8293B7;
-  height:fit-content;
+  height:100vh;
+}
+
+.user-wrap{
+  height: 100vh;
+  width: 100%;
 }
 
 .home {
@@ -14,11 +19,41 @@
 }
 
 .sidebar {
-  width: 200px;
+  position: fixed;
+  top: 80px; 
+  left: 0; 
+  width: 200px; 
+  padding: 20px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  cursor: pointer;
+  margin-bottom: 10px;
+  text-decoration: none; 
+  color: #333; 
+}
+
+.sidebar ul li:hover {
+  color: #555; 
 }
 
 .home-tutorial {
-  flex: 1;
+  position: fixed;
+  top: 100px; 
+  left: 200px; 
+  width: calc(100% - 200px); 
+  height: calc(100vh - 80px); 
+  overflow-y: auto;
+  padding: 30px;
+}
+
+.home-tutorial::-webkit-scrollbar {
+  display: none;
 }
 
 .intro-text {
@@ -42,15 +77,16 @@
 }
 
 
-.header {
+.chat-header, .home-header {
   height: 3rem;
   display: flex;
   justify-content: flex-end;
   padding-right: 7.5rem;
   padding-top: 1rem;
+  text-align: center;
 }
 
-.header > button, .send {
+.chat-header > button, .home-header > button, .send {
   width: 100px;
   height: 50px;
   border-radius: 5rem;
@@ -59,7 +95,7 @@
   background: linear-gradient(to bottom, #eaeaea, #a8a2a2);
 }
 
-.main {
+.chat-main {
   display: flex;
   flex-direction: column;
   align-items: center;
