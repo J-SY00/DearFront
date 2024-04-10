@@ -4,7 +4,7 @@ import Sidebar from "./component/Sidebar";
 import Header from "./component/Header.jsx";
 import HomeTutorial from "./component/HomeTutorial.jsx";
 
-const Home = () => {
+function Home() {
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) {
@@ -15,9 +15,12 @@ const Home = () => {
   return (
     <div className="home">
       <Header />
-      <Sidebar />
+      <div className="container">
+        <Sidebar />
+        <HomeTutorial />
+      </div>
     </div>
   );
-};
+}
 
 export default Home;
