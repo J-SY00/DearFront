@@ -1,8 +1,46 @@
 /* 기본 스타일 */
 .App {
   background: #8293B7;
-  height: 100vh;
+  height:fit-content;
 }
+
+.home {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+}
+
+.sidebar {
+  width: 200px;
+}
+
+.home-tutorial {
+  flex: 1;
+}
+
+.intro-text {
+  margin-top: 20rem;
+  margin-bottom: 20rem;
+  font-size: 32px;
+}
+
+.desc-text {
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  font-size: 24px;
+}
+
+.function-text {
+  font-size: 24px;
+}
+
+.tutorial-text {
+  font-size: 20px;
+}
+
 
 .header {
   height: 3rem;
