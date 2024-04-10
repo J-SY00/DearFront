@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles.css'
+import './mainstyles.css'
 import {Routes, Route, BrowserRouter } from 'react-router-dom'
 import MainPage from './pages/Main'
 import ChatPage from './pages/Chat'
