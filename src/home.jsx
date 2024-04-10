@@ -1,3 +1,25 @@
+// Home.jsx
+import React from 'react';
+import Sidebar from './Sidebar';
+
+const Home = () => {
+  return (
+    <div className="app">
+      <Sidebar />
+      <div className="content">
+        <div id="section1" className="section">Section 1 Content</div>
+        <div id="section2" className="section">Section 2 Content</div>
+        <div id="section3" className="section">Section 3 Content</div>
+      </div>
+    </div>
+  );
+};
+
+export default Home;
+
+
+
+
 import { Fragment } from "react";
 import { useState } from "react";
 import Header from "./component/Header.jsx";
