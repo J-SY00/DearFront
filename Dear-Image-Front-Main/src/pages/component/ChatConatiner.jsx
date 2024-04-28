@@ -12,13 +12,28 @@ export default function ChatConatiner() {
 
     //답변 가져오는...
     //I am a bot이라고 답장
-    const response = "I am a bot!"
+    const response = "I am a bot"
 
     setMessages([
       ...messages,
       {isBot : false, newMessage},
-      {isBot : true, newMessage: response}
+      
+      // 이미지 결과를 보내지 않는 경우
+      // {isBot : true, newMessage: response, isImage: false}
+
+      // 이미지 결과를 보내는 경우
+      {isBot : true, newMessage: response, isImage: true}
     ])
+  };
+
+  //이미지 다운로드 버튼
+  const downloadImage = () => {
+    alert("Image download");
+  };
+
+  //이미지 마음 안들 때 취소 버튼
+  const unDo = () => {
+    alert("Go Back");
   };
 
   // Scroll to the bottom of the message container whenever messages change
@@ -40,7 +55,8 @@ export default function ChatConatiner() {
       {imageSelected && (
         <div className='chat-container' ref={messageContainerRef}>
           {messages.map((message, index) => (
-            <Message key={index} message={message.newMessage} isBot={message.isBot} />
+            <Message key={index} message={message.newMessage} isBot={message.isBot} isImage={message.isImage} 
+            onDownload={downloadImage} unDo={unDo}/>
           ))}
         </div>
       )}      

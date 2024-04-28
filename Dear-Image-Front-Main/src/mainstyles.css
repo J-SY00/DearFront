@@ -1,5 +1,9 @@
 /* 기본 스타일 */
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+
 .App {
+  font-family: "Inconsolata", monospace;
+  font-optical-sizing: auto;
   background: #8293B7;
   height:100vh;
 }
@@ -76,17 +80,21 @@
   font-size: 20px;
 }
 
-
 .chat-header, .home-header {
-  height: 3rem;
+  height: 2rem;
   display: flex;
   justify-content: flex-end;
-  padding-right: 7.5rem;
+  padding-right: 2rem;
   padding-top: 1rem;
   text-align: center;
 }
 
-.chat-header > button, .home-header > button, .send {
+.bot-image-button{
+  width: 100%;
+  margin-top: 15px;
+}
+
+.chat-header > button, .home-header > button, .send, .download, .unDo{
   width: 100px;
   height: 50px;
   border-radius: 5rem;
@@ -95,26 +103,32 @@
   background: linear-gradient(to bottom, #eaeaea, #a8a2a2);
 }
 
+.download, .unDo{
+  width: auto;
+  height: 35px;
+  margin-right: 20px;
+}
+
 .chat-main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 1rem;
+  padding-top: 2.5rem;
 }
 
 .uploadImage{
   width: calc(100% - 6rem);
   height: calc(100vh - 40rem);
   align-items: center;
-  margin-top: 13rem;
+  margin-top: 8rem;
 }
 
 .chat-container {
   overflow-y: scroll;
   scroll-behavior: smooth;
   width: calc(100% - 12rem);
-  margin: 0 5rem;
-  height: calc(100vh - 15rem);
+  margin: 0.5rem 2rem;
+  height: calc(100vh - 13.5rem);
 }
 
 .chat-container::-webkit-scrollbar {
@@ -122,12 +136,18 @@
 }
 
 .message-container {
-  margin: 1rem;
-  padding: 2rem 3rem;
-  font-size: 1.25rem;
+  margin: 0 1rem 1.2rem 1rem;
+  padding: 1.6rem 3rem;
+  font-size: 18px;
   display: flex;
   align-items: flex-start;
   text-align: justify;
+  min-height: fit-content;
+  flex-direction: column;
+}
+
+.message-container > div {
+  flex: 1;
 }
 
 .user, .bot {
@@ -162,6 +182,7 @@
   align-items: center;
   border-radius: 2rem;
   width: calc(100% - 15rem);
+  height: calc(100vh - 36.5rem);
   border: 1px solid black;
 }
 
@@ -172,7 +193,7 @@
   color: #111111;
   background: transparent;
   border: none;
-  font-size: 1.2rem;
+  font-size: 18px;
 }
 
 .main-bottom > p {
@@ -180,12 +201,12 @@
   margin-bottom: 0.5rem;
   margin-left: 9rem;
   align-self: baseline;
-  font-size: 22pt;
+  font-size: 22px;
   color: white;
 }
 
 /* 반응형 디자인 */
-@media (max-width: 1200px) {
+@media (min-width: 768px) {
   .header {
     padding-right: 1rem;
   }
