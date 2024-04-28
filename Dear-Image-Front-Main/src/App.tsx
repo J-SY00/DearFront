@@ -1,5 +1,6 @@
 import React from 'react';
-import './mainstyles.css';
+// import './mainstyles.css';
+import './styles.css';
 import {Routes, Route, BrowserRouter } from 'react-router-dom';
 import MainPage from './pages/Main';
 import ChatPage from './pages/Chat';

@@ -1,13 +1,13 @@
 /* Header.jsx */
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Chat from "../Chat";
+import Button from "./Button";
 
 function Header() {
   const navigate = useNavigate();
   return (
     <header className="home-header">
-      <button onClick={() => navigate("../Chat")}>Start Now</button>
+      <Button text="Start Now" onClick={() => navigate("../Chat")}/>
     </header>
   );
 }

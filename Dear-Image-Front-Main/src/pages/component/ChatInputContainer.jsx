@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "./Button";
 
 export default function InputContainer({ imageSelected, sendMessage }) {
   //input 빈 문자열 선언, setInput함수로 input 값 업데이트
@@ -24,13 +25,11 @@ export default function InputContainer({ imageSelected, sendMessage }) {
             setInputValue(e.target.value);
           }}
         />
-        <button
-          className="send"
+        <Button
+          text="Send" 
           type="submit"
           disabled={!imageSelected || inputValue.trim() === ""}
-        >
-          Send
-        </button>
+        />
       </form>
     </div>
   );

@@ -21,7 +21,7 @@ export default function Imageupload({ setImageSelected }) {
   };
 
   return (
-    <div>
+    <div className="image">
       <label htmlFor="upload-button">
         <img className='uploadImage' src={UploadImage} alt="Upload"/>
       </label>

@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from "./Button";
 
 export default function Message({message, isBot, isImage, onDownload, unDo}) {
   return (
@@ -7,8 +8,8 @@ export default function Message({message, isBot, isImage, onDownload, unDo}) {
         {message}  
         {isBot && isImage && (
           <div className='bot-image-button'>
-            <button className="download" onClick={onDownload}>Download</button>
-            <button className="unDo" onClick={unDo}>undo</button>
+            <Button text="download" onClick={onDownload}/>
+            <Button text="undo" onClick={unDo}/>
           </div>
         )}
       </div>
