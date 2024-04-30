@@ -94,7 +94,7 @@
   margin-top: 15px;
 }
 
-.chat-header > button, .home-header > button, .send, .download, .unDo{
+.button{
   width: 100px;
   height: 50px;
   border-radius: 5rem;
