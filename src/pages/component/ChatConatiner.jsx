@@ -64,5 +64,5 @@ export default function ChatConatiner() {
       {/* 사용자 입력 부분 */}
       <InputContainer imageSelected={imageSelected} sendMessage={sendMessage}/>
     </div>
-  );
+  )
 }

@@ -1,3 +1,12 @@
+
+import picture1 from "./assets/IMG_4264.jpg";
+import picture2 from "./assets/IMG_1.jpg";
+import picture3 from "./assets/IMG_2.jpg";
+import picture4 from "./assets/IMG_3.jpg";
+import picture5 from "./assets/IMG_4.jpg";
+import picture6 from "./assets/IMG_5.jpg";
+import picture7 from "./assets/IMG_6.jpg";
+
 const HomeTutorial = () => {
   return (
     <div className="home-tutorial">
@@ -7,6 +16,7 @@ const HomeTutorial = () => {
 
       <div className="intro-text">
         <p>DEAR IMAGE, the easiest image edit tool</p>
+        <img src={picture1} width="1000px" />
       </div>
       <div className="desc-text">
         <p>
@@ -21,6 +31,17 @@ const HomeTutorial = () => {
           You can select the object to change its color to black and white.
           Please check the command you write contains the keyword 'colorpop'.
         </p>
+        <img src={picture2} width="1000px" />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
 
       <div id="tutorial-replace">
@@ -29,6 +50,17 @@ const HomeTutorial = () => {
           You can select the object and replace it into another object. Please
           check the command you write contains the keyword 'replace'.
         </p>
+        <img src={picture3} width="1000px" />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
 
       <div id="tutorial-emoji">
@@ -39,6 +71,17 @@ const HomeTutorial = () => {
           result! Please check the command you write contains the keyword
           'emoji'.
         </p>
+        <img src={picture4} width="1000px" />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
 
       <div id="tutorial-blur">
@@ -47,15 +90,47 @@ const HomeTutorial = () => {
           You can blur the background of the object you selected. Please check
           the command you write contains the keyword 'blur'.
         </p>
+        <img src={picture5} width="1000px" />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
 
       <div id="tutorial-?">
-        <p className="function-text">OBJECT RECOGNITION</p>
+        <p className="function-text">GQA(OBJECT RECOGNITION)</p>
         <p className="tutorial-text">
           You can ask about the information of the image, such as the number of
           a certain object. Please write question mark '?' at the end of your
           command.
         </p>
+        <img src={picture6} width="1000px" />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
     </div>
   );
