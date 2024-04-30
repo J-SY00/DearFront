@@ -155,12 +155,12 @@ header button {
 /* 버튼 관련 */
 .button {
   width: auto;
-  height: 30px;
+  height: 40px;
   border-radius: 45px;
   border: 1px solid black;
   color: black;
   background: linear-gradient(to bottom, #eaeaea, #a8a2a2);
-  font-size: 13px;
+  font-size: 25px;
   transition: box-shadow 0.2s;
 }
 
@@ -193,8 +193,8 @@ header button {
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 200px;
-  height: 150px;
+  width: 300px;
+  height: 250px;
   border-radius: 9px;
   transition: 0.3s;
 }
@@ -206,8 +206,8 @@ header button {
 
 .chat-container {
   position: fixed;
-  top: 50px;
-  bottom: 75px;
+  top: 70px;
+  bottom: 100px;
   width: 100%;
   overflow-y: scroll;
   scroll-behavior: smooth;
@@ -221,7 +221,7 @@ header button {
 .message-container {
   margin: 0 0.5rem 0.5rem 0.5rem;
   padding: 1rem;
-  font-size: 12px;
+  font-size: 25px;
   display: flex;
   flex-direction: column; 
   text-align: justify;
@@ -281,7 +281,7 @@ header button {
   flex: 1;
   border: none;
   outline: none;
-  font-size: 12px;
+  font-size: 25px;
   color: #111111;
   background: transparent;
   border: none;
@@ -292,7 +292,7 @@ header button {
   position: relative;
   margin-bottom: 0;
   /* font-size: 2vw; */
-  font-size: 13px;
+  font-size: 25px;
   padding: 0 10px;
   color: white;
 }
