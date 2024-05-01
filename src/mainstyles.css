@@ -193,8 +193,8 @@ header button {
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px;
-  height: 250px;
+  width: 350px;
+  height: 300px;
   border-radius: 9px;
   transition: 0.3s;
 }
@@ -219,8 +219,8 @@ header button {
 }
 
 .message-container {
-  margin: 0 0.5rem 0.5rem 0.5rem;
-  padding: 1rem;
+  margin: 0 0.5rem 1rem 0.5rem;
+  padding: 1.5rem;
   font-size: 25px;
   display: flex;
   flex-direction: column; 
