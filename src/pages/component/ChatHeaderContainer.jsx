@@ -3,7 +3,7 @@ import Button from "./Button";
 
 export default function HeaderContainer() {
   return (
-    <div className='chat-header'>
+    <div className="chat-header">
       <Button text="Reset"/>
     </div>
   )

@@ -1,5 +1,6 @@
 /* Header.jsx */
 import React from "react";
+import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
@@ -7,8 +8,10 @@ const Header = () => {
   return (
     <header className="home-header">
       <h1>DEAR IMAGE</h1>
-
-      <button onClick={() => navigate("../Chat")}>Start Now</button>
+      <p>|Edit image with just a single sentence|</p>
+      <div className="home-button">
+        <Button text="Start Now" onClick={() => navigate("../Chat")}/>
+      </div>      
     </header>
   );
 };

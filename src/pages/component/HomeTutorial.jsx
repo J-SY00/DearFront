@@ -10,13 +10,9 @@ import picture7 from "./assets/IMG_6.jpg";
 const HomeTutorial = () => {
   return (
     <div className="home-tutorial">
-      <div>
-        <p>|Edit image with just a single sentence|</p>
-      </div>
-
-      <div className="intro-text">
-        <p>DEAR IMAGE, the easiest image edit tool</p>
-        <img src={picture1} width="1000px" />
+      <div className="img-container">
+        <p className="img-text">DEAR IMAGE, the easiest image edit tool</p>
+        <img src={picture1}/>
       </div>
       <div className="desc-text">
         <p>

@@ -4,8 +4,8 @@ import ChatConatiner from "./component/ChatConatiner";
 
 function Chat() {
   return (
-    <div className="App">
-      <HeaderContainer />
+    <div className="chat">
+      <HeaderContainer/>
       <ChatConatiner />
     </div>
   );
