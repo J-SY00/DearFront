@@ -122,6 +122,8 @@
 }
 
 .function-text {
+  position: inherit;
+  align-self: self-start;
   font-size: 24px;
 }
 
