@@ -21,14 +21,15 @@ const HomeTutorial = () => {
           tutorial!
         </p>
       </div>
+      
 
       <div id="tutorial-colorpop" className="tutorial-function">
         <p className="function-text">COLORPOP</p>
         <p className="tutorial-text">
           You can select the object to change its color to black and white.
-          Please check the command you write contains the keyword 'colorpop'.
+          Please check if this is a command that includes the keyword 'colorpop'.
         </p>
-        <img src={picture2} width="1000px" />
+        <img src={picture2} width="1200px" />
         <br />
         <br />
         <br />
@@ -47,7 +48,7 @@ const HomeTutorial = () => {
           You can select the object and replace it into another object. Please
           check the command you write contains the keyword 'replace'.
         </p>
-        <img src={picture3} width="1000px" />
+        <img src={picture3} width="1200px" />
         <br />
         <br />
         <br />
@@ -68,7 +69,7 @@ const HomeTutorial = () => {
           result! Please check the command you write contains the keyword
           'emoji'.
         </p>
-        <img src={picture4} width="1000px" />
+        <img src={picture4} width="1200px" />
         <br />
         <br />
         <br />
@@ -87,7 +88,7 @@ const HomeTutorial = () => {
           You can blur the background of the object you selected. Please check
           the command you write contains the keyword 'blur'.
         </p>
-        <img src={picture5} width="1000px" />
+        <img src={picture5} width="1200px" />
         <br />
         <br />
         <br />
@@ -107,7 +108,7 @@ const HomeTutorial = () => {
           a certain object. Please write question mark '?' at the end of your
           command.
         </p>
-        <img src={picture6} width="1000px" />
+        <img src={picture6} width="1200px" />
         <br />
         <br />
         <br />
