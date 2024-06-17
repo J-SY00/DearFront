@@ -12,11 +12,17 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <ul>
-        <li onClick={() => scrollToSection("tutorial-colorpop")}>Colorpop</li>
-        <li onClick={() => scrollToSection("tutorial-replace")}>Replace</li>
-        <li onClick={() => scrollToSection("tutorial-emoji")}>Emoji</li>
-        <li onClick={() => scrollToSection("tutorial-blur")}>Blur</li>
-        <li onClick={() => scrollToSection("tutorial-?")}>GQA</li>
+        <li onClick={() => scrollToSection("tutorial-colorpop")}>
+        COLORPOP       ----------------------●
+        </li>
+        <li onClick={() => scrollToSection("tutorial-replace")}>
+        REPLACE       -----------------------●
+        </li>
+        <li onClick={() => scrollToSection("tutorial-emoji")}>
+        EMOJI       -------------------------●
+        </li>
+        <li onClick={() => scrollToSection("tutorial-blur")}>BLUR       --------------------------●</li>
+        <li onClick={() => scrollToSection("tutorial-?")}>GQA       ---------------------------●</li>
       </ul>
     </div>
   );
