@@ -47,7 +47,22 @@
 
 /* 홈화면 */
 .home {
-  display: grid;
+  display: flex;
+}
+
+.home-container {
+  display: flex;
+  flex: 1;
+  overflow:hidden;
+}
+
+.home-sidebar {
+  width: 500px;
+}
+
+.home-hometutorial {
+  flex: 1;
+  overflow-y: auto;
 }
 
 .sidebar {
