@@ -31,10 +31,7 @@ export default function ChatConatiner() {
     alert("Image download");
   };
 
-  //이미지 마음 안들 때 취소 버튼
-  const unDo = () => {
-    alert("Go Back");
-  };
+ 
 
   // Scroll to the bottom of the message container whenever messages change
   useEffect(() => {
@@ -56,7 +53,7 @@ export default function ChatConatiner() {
         <div className='chat-container' ref={messageContainerRef}>
           {messages.map((message, index) => (
             <Message key={index} message={message.newMessage} isBot={message.isBot} isImage={message.isImage} 
-            onDownload={downloadImage} unDo={unDo}/>
+            onDownload={downloadImage}/>
           ))}
         </div>
       )}      

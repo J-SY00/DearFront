@@ -9,8 +9,12 @@ function Home() {
     <div className="home">
       <Header />
       <div className="home-container">
-        <Sidebar />
-        <HomeTutorial />
+        <div className="home-sidebar">
+          <Sidebar />
+        </div>
+        <div className="home-hometutorial">
+          <HomeTutorial />
+        </div>
       </div>
     </div>
   );

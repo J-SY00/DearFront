@@ -9,7 +9,7 @@ export default function Message({message, isBot, isImage, onDownload, unDo}) {
         {isBot && isImage && (
           <div className='bot-image-button'>
             <Button text="download" onClick={onDownload}/>
-            <Button text="undo" onClick={unDo}/>
+           
           </div>
         )}
       </div>
