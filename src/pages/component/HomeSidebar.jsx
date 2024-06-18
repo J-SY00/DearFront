@@ -13,16 +13,25 @@ const Sidebar = () => {
     <div className="sidebar">
       <ul>
         <li onClick={() => scrollToSection("tutorial-colorpop")}>
-        COLORPOP       ----------------------●
+          <span>COLORPOP</span>
+          <span className="hide-on-small"> ----------------------●</span>
         </li>
         <li onClick={() => scrollToSection("tutorial-replace")}>
-        REPLACE       -----------------------●
+          <span>REPLACE</span>
+          <span className="hide-on-small"> -----------------------●</span>
         </li>
         <li onClick={() => scrollToSection("tutorial-emoji")}>
-        EMOJI       -------------------------●
+          <span>EMOJI</span>
+          <span className="hide-on-small"> -------------------------●</span>
         </li>
-        <li onClick={() => scrollToSection("tutorial-blur")}>BLUR       --------------------------●</li>
-        <li onClick={() => scrollToSection("tutorial-?")}>GQA       ---------------------------●</li>
+        <li onClick={() => scrollToSection("tutorial-blur")}>
+          <span>BLUR</span>
+          <span className="hide-on-small"> --------------------------●</span>
+        </li>
+        <li onClick={() => scrollToSection("tutorial-?")}>
+          <span>GQA</span>
+          <span className="hide-on-small"> ---------------------------●</span>
+        </li>
       </ul>
     </div>
   );
