@@ -3,7 +3,7 @@ import Imageupload from "./ChatImageupload"
 import InputContainer from './ChatInputContainer';
 import Message from './ChatMessage';
 
-export default function ChatConatiner() {
+export default function ChatConatiner({ resetOn, setResetOn }) {
   const [imageSelected, setImageSelected] = useState(false);
   const [messages, setMessages] = useState([]);
   const messageContainerRef = useRef(null);
@@ -31,8 +31,6 @@ export default function ChatConatiner() {
     alert("Image download");
   };
 
- 
-
   // Scroll to the bottom of the message container whenever messages change
   useEffect(() => {
     if (messageContainerRef.current) {
@@ -40,6 +38,15 @@ export default function ChatConatiner() {
       messageContainerRef.current.scrollHeight;
     }
   }, [messages]);
+
+  //리셋버튼 관련
+  useEffect(() => {
+    if (resetOn) {
+      setImageSelected(false); //Reset버튼 누르면 이미지선택 초기화 상태로 변경
+      setMessages([]); //Reset버튼 누르면 메시지창 초기화로 변경
+      setResetOn(false); //true로 변한 resetOn 변수 다시 false로 초기화완료 상태로   
+    }
+  }, [resetOn]);
 
   return (
     <div className='chat-main'>
@@ -59,7 +66,7 @@ export default function ChatConatiner() {
       )}      
 
       {/* 사용자 입력 부분 */}
-      <InputContainer imageSelected={imageSelected} sendMessage={sendMessage}/>
+      <InputContainer imageSelected={imageSelected} sendMessage={sendMessage} resetOn={resetOn}/>
     </div>
   )
 }

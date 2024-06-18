@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "./Button";
 
-export default function InputContainer({ imageSelected, sendMessage }) {
+export default function InputContainer({ resetOn, imageSelected, sendMessage }) {
   //input 빈 문자열 선언, setInput함수로 input 값 업데이트
   const [inputValue, setInputValue] = useState("");
 
@@ -12,6 +12,13 @@ export default function InputContainer({ imageSelected, sendMessage }) {
       setInputValue("");
     }
   };
+
+  //리셋버튼 관련 : 입력창 초기화
+  useEffect(() => {
+    if (resetOn) {
+      setInputValue("");
+    }
+  }, [resetOn]);
 
   return (
     <div className="main-bottom">
