@@ -5,7 +5,7 @@ import ChatConatiner from "./component/ChatConatiner";
 function Chat() {
   const [resetOn, setResetOn] = useState(false);
 
-  //초기화상태 변경 함수 : true = 버튼 누른 것
+  //리셋버튼 : 초기화상태 변경 함수 : true = 버튼 누른 것
   const handleChatReset = () => {
     setResetOn(true);
   };

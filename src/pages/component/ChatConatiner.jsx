@@ -66,7 +66,7 @@ export default function ChatConatiner({ resetOn, setResetOn }) {
       )}      
 
       {/* 사용자 입력 부분 */}
-      <InputContainer imageSelected={imageSelected} sendMessage={sendMessage}/>
+      <InputContainer imageSelected={imageSelected} sendMessage={sendMessage} resetOn={resetOn}/>
     </div>
   )
 }
