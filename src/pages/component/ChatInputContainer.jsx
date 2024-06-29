@@ -7,6 +7,22 @@ export default function InputContainer({ resetOn, imageSelected, sendMessage }) 
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+
+
+    axios
+      .post("http://localhost:8080/upload", { 
+      
+      }).then((res) => { //데이터 전송 성공 시 response 받음
+        alert("명령어 전송 성공");
+      })
+      .catch(function (err) { //데이터 전송 실패 시 error 받음
+        console.error("Error:", error);
+      });
+    
+
+    
+
     if (imageSelected && inputValue.trim() !== "") {
       sendMessage(inputValue);
       setInputValue("");
