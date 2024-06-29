@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import Imageupload from "./ChatImageupload"
 import InputContainer from './ChatInputContainer';
 import Message from './ChatMessage';
+import { getImageURL } from './api/DownloadAPI';
 
 export default function ChatConatiner({ resetOn, setResetOn }) {
   const [imageSelected, setImageSelected] = useState(false);
@@ -29,6 +30,20 @@ export default function ChatConatiner({ resetOn, setResetOn }) {
   //이미지 다운로드 버튼
   const downloadImage = () => {
     alert("Image download");
+
+    getImageURL() //api get함수
+    .then(response => {
+      const ImageData = new Blob([response.data], { type: 'image/png' });
+      const url = window.URL.createObjectURL(ImageData);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'image.png';
+      link.click();
+      window.URL.revokeObjectURL(url);
+    })
+    .catch(error => {
+      console.error(error);
+    });
   };
 
   // Scroll to the bottom of the message container whenever messages change
