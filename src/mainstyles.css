@@ -357,13 +357,21 @@
   background: linear-gradient(to right, #eaeaea, #a8a2a2);
 }
 
-.bot-image-button{
+.message-img-container {
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
 
-.bot-image-button > button{
+.message-img-container img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  padding: 5px;
+  background-color: #fff;
+}
+
+.message-img-container > button{
   margin-left: 5px;
 }
 
