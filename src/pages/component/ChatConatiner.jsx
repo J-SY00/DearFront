@@ -16,9 +16,10 @@ export default function ChatConatiner({ resetOn, setResetOn }) {
 
     let imageUrl = null;
     try {
-      const imageResponse = await axios.get(
-        "https://back-end-url/command_image"
-      );
+      const imageResponse = await axios.post(
+        "http://localhost:3001/command_image",
+        { message: newMessage }
+      ); // Adjust the URL and payload as needed
       imageUrl = imageResponse.data.imageUrl; // Adjust based on your response structure
     } catch (error) {
       console.error("Error fetching image:", error);
@@ -85,6 +86,7 @@ export default function ChatConatiner({ resetOn, setResetOn }) {
               message={message.newMessage}
               isBot={message.isBot}
               isImage={message.isImage}
+              imageUrl={message.imageUrl}
               onDownload={downloadImage}
             />
           ))}
