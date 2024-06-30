@@ -1,13 +1,21 @@
-// import React from 'react'
-import { Link } from "react-router-dom";
-import Button from "./component/Button";
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import Button from './component/Button';
+import { useNavigate } from "react-router-dom";
+import { toMainPage } from './component/ectFile/navigation';
 
-function Main() {
+const Main = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    toMainPage(navigate);
+  }, []);
+
   return (
     <div className="main">
       <div className="chat-header">
-        <Link to="/Chat">
-          <Button text="try it now" />
+        <Link to="/chat">
+          <Button text="Try it now" />
         </Link>
       </div>
       <div className="user-wrap">
@@ -20,6 +28,6 @@ function Main() {
       </div>
     </div>
   );
-}
+};
 
 export default Main;

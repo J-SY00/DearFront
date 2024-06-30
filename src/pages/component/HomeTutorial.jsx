@@ -6,6 +6,7 @@ import picture5 from "./assets/IMG_4.jpg";
 import picture6 from "./assets/IMG_5.jpg";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
+import {toChatPage} from "./ectFile/navigation";
 
 const HomeTutorial = () => {
   const navigate = useNavigate();
@@ -127,7 +128,7 @@ const HomeTutorial = () => {
       </div>
 
       <div id="start-button">
-        <Button text="Start Now" onClick={() => navigate("../Chat")} />
+        <Button text="Start Now" onClick={() => toChatPage(navigate)} />
         <br />
         <br />
         <br />

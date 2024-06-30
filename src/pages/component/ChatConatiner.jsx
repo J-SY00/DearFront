@@ -2,7 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import Imageupload from "./ChatImageupload"
 import InputContainer from './ChatInputContainer';
 import Message from './ChatMessage';
-import { getImageURL } from './api/DownloadAPI';
+import { downloadImage } from './api/ChatAPI';
+import axios from 'axios';
 
 export default function ChatConatiner({ resetOn, setResetOn }) {
   const [imageSelected, setImageSelected] = useState(false);
@@ -10,40 +11,39 @@ export default function ChatConatiner({ resetOn, setResetOn }) {
   const messageContainerRef = useRef(null);
 
   const sendMessage = async (newMessage) => {
+    // setMessages([
+    //   ...messages,
+    //   { isBot: false, newMessage },
+    //   { isBot: true, newMessage: "Loading..." }
+    // ]);
 
-    //답변 가져오는...
-    //I am a bot이라고 답장
-    const response = "I am a bot"
+    let imageUrl = null;
+    try {
+      const imageResponse = await axios.get(
+        //"https://back-end-url/command_image"
+        'https://picsum.photos/800/800', { 
+        responseType: 'blob' 
+        });
+      const ImageData = new Blob([imageResponse.data], { type: 'image/png' });
+      imageUrl = window.URL.createObjectURL(ImageData);
+    } catch (error) {
+      console.error("Error fetching image:", error);
+    }
 
+    // setMessages(prevMessages => prevMessages.map(msg =>
+    //   msg.newMessage === "Loading..."
+    //     ? { isBot: true, newMessage: "", isImage: Boolean(imageUrl), imageUrl }
+    //     : msg
+    // ));
     setMessages([
       ...messages,
-      {isBot : false, newMessage},
-      
-      // 이미지 결과를 보내지 않는 경우
-      // {isBot : true, newMessage: response, isImage: false}
-
-      // 이미지 결과를 보내는 경우
-      {isBot : true, newMessage: response, isImage: true}
-    ])
-  };
-
-  //이미지 다운로드 버튼
-  const downloadImage = () => {
-    alert("Image download");
-
-    getImageURL() //api get함수
-    .then(response => {
-      const ImageData = new Blob([response.data], { type: 'image/png' });
-      const url = window.URL.createObjectURL(ImageData);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = 'image.png';
-      link.click();
-      window.URL.revokeObjectURL(url);
-    })
-    .catch(error => {
-      console.error(error);
-    });
+      { isBot: false, newMessage },
+      {
+        isBot: true,
+        isImage: Boolean(imageUrl),
+        imageUrl,
+      },
+    ]);
   };
 
   // Scroll to the bottom of the message container whenever messages change
@@ -74,14 +74,24 @@ export default function ChatConatiner({ resetOn, setResetOn }) {
       {imageSelected && (
         <div className='chat-container' ref={messageContainerRef}>
           {messages.map((message, index) => (
-            <Message key={index} message={message.newMessage} isBot={message.isBot} isImage={message.isImage} 
-            onDownload={downloadImage}/>
+            <Message 
+              key={index} 
+              message={message.newMessage} 
+              isBot={message.isBot} 
+              isImage={message.isImage} 
+              imageUrl={message.imageUrl}
+              onDownload={() => downloadImage(message.imageUrl)}
+            />
           ))}
         </div>
       )}      
 
       {/* 사용자 입력 부분 */}
-      <InputContainer imageSelected={imageSelected} sendMessage={sendMessage} resetOn={resetOn}/>
+      <InputContainer 
+        imageSelected={imageSelected} 
+        sendMessage={sendMessage} 
+        resetOn={resetOn}
+      />
     </div>
   )
 }

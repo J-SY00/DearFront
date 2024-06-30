@@ -329,6 +329,11 @@
   min-height: fit-content; 
 }
 
+.message-img-container > img {
+  width: 30%;
+  margin-right: 30px;
+}
+
 .message-container > div {
   word-wrap: break-word;
 }
