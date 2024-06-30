@@ -17,8 +17,8 @@ export default function ChatConatiner({ resetOn, setResetOn }) {
     let imageUrl = null;
     try {
       const imageResponse = await axios.get(
-        "https://your-backend-url.com/api/image"
-      ); // Replace with your image endpoint
+        "https://back-end-url/command_image"
+      );
       imageUrl = imageResponse.data.imageUrl; // Adjust based on your response structure
     } catch (error) {
       console.error("Error fetching image:", error);
