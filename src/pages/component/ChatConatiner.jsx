@@ -18,10 +18,12 @@ export default function ChatConatiner({ resetOn, setResetOn }) {
     let imageUrl = null;
     try {
       const imageResponse = await axios.post(
+        // "http://localhost:5000/api/image",
         "http://localhost:3001/api/image",
         { message: newMessage }
       ); // Adjust the URL and payload as needed
       imageUrl = imageResponse.data.imageUrl; // Adjust based on your response structure
+      console.log("Fetched image URL:", imageUrl);
     } catch (error) {
       console.error("Error fetching image:", error);
     }

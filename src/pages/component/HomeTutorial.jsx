@@ -10,6 +10,11 @@ import {toChatPage} from "./api/navigation";
 
 const HomeTutorial = () => {
   const navigate = useNavigate();
+
+  const handleStartNowClick = () => {
+    toChatPage(navigate);
+  };
+
   return (
     <div className="home-tutorial">
       <div className="img-container">
@@ -128,7 +133,7 @@ const HomeTutorial = () => {
       </div>
 
       <div id="start-button">
-        <Button text="Start Now" onClick={() => navigate("../Chat")} />
+        <Button text="Start Now" onClick={handleStartNowClick} />
         <br />
         <br />
         <br />

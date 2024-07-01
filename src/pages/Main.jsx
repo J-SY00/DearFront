@@ -2,20 +2,25 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Button from './component/Button';
 import { useNavigate } from "react-router-dom";
-import { toMainPage } from './component/api/navigation';
+import { toChatPage } from './component/api/navigation';
+import { mainPage } from './component/api/pageAPI';
 
 const Main = () => {
   const navigate = useNavigate();
-
+  
   useEffect(() => {
-    toMainPage(navigate);
+    mainPage();
   }, []);
+
+  const handleStartNowClick = () => {
+    toChatPage(navigate);
+  };
 
   return (
     <div className="main">
       <div className="chat-header">
         <Link to="/chat">
-          <Button text="Try it now" />
+        <Button text="Start Now" onClick={handleStartNowClick}/>
         </Link>
       </div>
       <div className="user-wrap">

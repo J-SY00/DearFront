@@ -6,10 +6,18 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.json("This is MainPage");
+});
+
+app.get('/start', (req, res) => {
+res.json("This is StartPage");
+});
+
 app.post('/api/image', (req, res) => {
   const userMessage = req.body.message;
   // const imageUrl = "https://via.placeholder.com/150"; // Replace with your image generation logic
-  const imageUrl = "https://picsum.photos/150";
+  const imageUrl = "https://picsum.photos/id/1/200/300"
   res.json({ imageUrl });
 });
 

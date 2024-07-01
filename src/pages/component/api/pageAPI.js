@@ -6,10 +6,12 @@ const api = axios.create({
   baseURL,
 });
 
+
 //GET 메인페이지
 export const mainPage = async () => {
   try {
     const response = await api.get('/');
+    console.log('Flask 서버 응답:', response.data); // 연결 확인
     return response.data;
   } catch (error) {
     console.error('MainPage error : ', error);
@@ -17,10 +19,11 @@ export const mainPage = async () => {
   }
 };
 
-//GET 채팅페이지
+// GET 채팅페이지
 export const startPage = async () => {
   try {
     const response = await api.get('/start');
+    console.log('Flask 서버 응답:', response.data); // 연결 확인
     return response.data;
   } catch (error) {
     console.error('startPage Error : ', error);
@@ -29,10 +32,9 @@ export const startPage = async () => {
 };
 
 
-
-
 //이미지 url get
 export const getImageURL = async (imageUrl) => {
+  console.log("Getting Image URL to download:", imageUrl);
   return await axios.get(
     imageUrl, { 
     responseType: 'blob' 
@@ -50,7 +52,6 @@ export const downloadImage = async (imageUrl) => {
     link.download = 'image.png';
     link.click();
     window.URL.revokeObjectURL(url);
-    console.log(response);
   } catch (error) {
     console.error("Error downloading image:", error);
   }

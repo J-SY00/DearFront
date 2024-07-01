@@ -1,9 +1,8 @@
 import { mainPage, startPage } from "./pageAPI";
 
-export const toMainPage = async (navigate) => {
+export const toMainPage = async () => {
   try {
     await mainPage();
-    navigate('/');
   } catch (error) {
     console.error('Error navigating to Main Page:', error);
   }
