@@ -6,14 +6,10 @@ import picture5 from "./assets/IMG_4.jpg";
 import picture6 from "./assets/IMG_5.jpg";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
-import {toChatPage} from "./api/navigation";
+import { toChatPage } from './api/navigation';
 
 const HomeTutorial = () => {
   const navigate = useNavigate();
-
-  const handleStartNowClick = () => {
-    toChatPage(navigate);
-  };
 
   return (
     <div className="home-tutorial">
@@ -133,7 +129,7 @@ const HomeTutorial = () => {
       </div>
 
       <div id="start-button">
-        <Button text="Start Now" onClick={handleStartNowClick} />
+        <Button text="Start Now" onClick={() => toChatPage(navigate)} />
         <br />
         <br />
         <br />
