@@ -17,7 +17,7 @@ export default function ChatConatiner({ resetOn, setResetOn }) {
     let imageUrl = null;
     try {
       const imageResponse = await axios.post(
-        "http://localhost:3001/command_image",
+        "http://localhost:3001/api/image",
         { message: newMessage }
       ); // Adjust the URL and payload as needed
       imageUrl = imageResponse.data.imageUrl; // Adjust based on your response structure
@@ -47,7 +47,7 @@ export default function ChatConatiner({ resetOn, setResetOn }) {
       // 이미지 결과를 보내는 경우
       {isBot : true, newMessage: response, isImage: true}
     ])
-      */
+    */
   };
 
   //이미지 다운로드 버튼
