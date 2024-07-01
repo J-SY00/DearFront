@@ -1,33 +1,41 @@
 import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import Button from "./Button";
 
 export default function InputContainer({ resetOn, imageSelected, sendMessage }) {
   //input 빈 문자열 선언, setInput함수로 input 값 업데이트
   const [inputValue, setInputValue] = useState("");
+  const [responseMessage, setResponseMessage] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-
-
-    axios
-      .post("http://localhost:8080/upload", { 
-      
-      }).then((res) => { //데이터 전송 성공 시 response 받음
-        alert("명령어 전송 성공");
-      })
-      .catch(function (err) { //데이터 전송 실패 시 error 받음
-        console.error("Error:", error);
-      });
-    
-
-    
-
     if (imageSelected && inputValue.trim() !== "") {
       sendMessage(inputValue);
       setInputValue("");
     }
   };
+  
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+
+  const handleSendText = () => {
+    axios.post('http://127.0.0.1:5000', { text: inputValue })
+      .then(response => {
+        console.log("선택된 이미지 파일명", inputValue);
+        setResponseMessage(response.data.message);
+        setInputValue('');
+      })
+      .catch(error => {
+        console.error('Error sending text:', error);
+        setResponseMessage('Error sending text');
+      });
+  };
+
+
+
+
 
   //리셋버튼 관련 : 입력창 초기화
   useEffect(() => {
@@ -44,11 +52,10 @@ export default function InputContainer({ resetOn, imageSelected, sendMessage }) 
           type="text"
           placeholder="Type your message..."
           value={inputValue}
-          onChange={(e) => {
-            setInputValue(e.target.value);
-          }}
+          onChange={handleInputChange}
+          onKeyPress={(e) => e.key === 'Enter' && handleSendText()}
         />
-        <Button
+        <Button onClick={handleSendText}
           text="Send" 
           type="submit"
           disabled={!imageSelected || inputValue.trim() === ""}
