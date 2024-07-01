@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Button from './component/Button';
 import { useNavigate } from "react-router-dom";
-import { toMainPage } from './component/ectFile/navigation';
+import { toMainPage } from './component/api/navigation';
 
 const Main = () => {
   const navigate = useNavigate();

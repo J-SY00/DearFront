@@ -1,7 +1,7 @@
 /* Header.jsx */
 import React from "react";
 import Button from "./Button";
-import { toChatPage } from "./ectFile/navigation";
+import { toChatPage } from "./api/navigation";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {

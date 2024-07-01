@@ -66,6 +66,8 @@
   overflow-y: auto;
 }
 
+
+/* 사이드바 */
 .sidebar {
   position: fixed;
   top: 135px; 
@@ -90,7 +92,6 @@
 }
 
 
-
 /* 홈화면 가운데부분 정렬*/
 .home-tutorial {
   position: grid;
@@ -102,7 +103,6 @@
   overflow-y: auto;
   padding: 20px 20px;
   color: white;
-  font-size: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -117,12 +117,16 @@
   align-items: center;
   text-align: center;
  
-  padding: 20px 20px;
+  padding: 20px 10px;
   
 }
 
 .tutorial-text{
-  width: 100%;
+  width: 120%;
+}
+
+.tutorial-img {
+  width: 140%;
 }
 
 
@@ -136,13 +140,16 @@
     width: 200px;
   }
 
-  .sidebar ul li {
-    font-size: 8px;
+  .hide-on-small {
+    display: none;
   }
-
 
   .home-hometutorial {
     padding: 10px;
+  }
+
+  .tutorial-text {
+    width: 180%;
   }
 
 }
@@ -163,7 +170,7 @@
 
 .img-container{
   position: relative;
-  width: 750px;
+  width: 60%;
   height: auto;
   margin: 0 auto;
   background-color: #000;
@@ -175,12 +182,14 @@
 
 .img-text{
   position: absolute;
-  bottom: 200px;
+  align-self:center;
+  top: 50%;
+  bottom: 50%;
   left: 0;
   right: 0;
   color: white;
   background-color: rgba(38, 38, 38, 0.5);
-  font-size: 30px;
+  font-size:2vw;
   text-align: center;
   padding: 10px;
   box-sizing: border-box;
@@ -353,13 +362,21 @@
   background: linear-gradient(to right, #eaeaea, #a8a2a2);
 }
 
-.bot-image-button{
+.message-img-container {
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
 
-.bot-image-button > button{
+.message-img-container img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  padding: 5px;
+  background-color: #fff;
+}
+
+.message-img-container > button{
   margin-left: 5px;
 }
 

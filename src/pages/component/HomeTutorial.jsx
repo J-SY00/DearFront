@@ -6,7 +6,7 @@ import picture5 from "./assets/IMG_4.jpg";
 import picture6 from "./assets/IMG_5.jpg";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
-import {toChatPage} from "./ectFile/navigation";
+import {toChatPage} from "./api/navigation";
 
 const HomeTutorial = () => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const HomeTutorial = () => {
     <div className="home-tutorial">
       <div className="img-container">
         <p className="img-text">DEAR IMAGE, the easiest image edit tool</p>
-        <img src={picture1} />
+        <img src={picture1} className="home-img" />
       </div>
       <div className="desc-text">
         <p>
@@ -22,15 +22,15 @@ const HomeTutorial = () => {
           tutorial!
         </p>
       </div>
-      
 
       <div id="tutorial-colorpop" className="tutorial-function">
         <p className="function-text">COLORPOP</p>
         <p className="tutorial-text">
           You can select the object to change its color to black and white.
-          Please check if this is a command that includes the keyword 'colorpop'.
+          Please check if this is a command that includes the keyword
+          'colorpop'.
         </p>
-        <img src={picture2} width="1200px" />
+        <img src={picture2} className="tutorial-img" />
         <br />
         <br />
         <br />
@@ -49,7 +49,7 @@ const HomeTutorial = () => {
           You can select the object and replace it into another object. Please
           check the command you write contains the keyword 'replace'.
         </p>
-        <img src={picture3} width="1200px" />
+        <img src={picture3} className="tutorial-img" />
         <br />
         <br />
         <br />
@@ -70,7 +70,7 @@ const HomeTutorial = () => {
           result! Please check the command you write contains the keyword
           'emoji'.
         </p>
-        <img src={picture4} width="1200px" />
+        <img src={picture4} className="tutorial-img" />
         <br />
         <br />
         <br />
@@ -89,7 +89,7 @@ const HomeTutorial = () => {
           You can blur the background of the object you selected. Please check
           the command you write contains the keyword 'blur'.
         </p>
-        <img src={picture5} width="1200px" />
+        <img src={picture5} className="tutorial-img" />
         <br />
         <br />
         <br />
@@ -109,7 +109,7 @@ const HomeTutorial = () => {
           a certain object. Please write question mark '?' at the end of your
           command.
         </p>
-        <img src={picture6} width="1200px" />
+        <img src={picture6} className="tutorial-img" />
         <br />
         <br />
         <br />
