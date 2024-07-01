@@ -1,9 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
-import Imageupload from "./ChatImageupload"
-import InputContainer from './ChatInputContainer';
-import Message from './ChatMessage';
-import { downloadImage } from './api/pageAPI';
-import axios from 'axios';
+import React, { useState, useRef, useEffect } from "react";
+import Imageupload from "./ChatImageupload";
+import InputContainer from "./ChatInputContainer";
+import Message from "./ChatMessage";
+import { downloadImage } from "./api/pageAPI";
+import axios from "axios";
 
 export default function ChatConatiner({ resetOn, setResetOn }) {
   const [imageSelected, setImageSelected] = useState(false);
@@ -17,10 +17,9 @@ export default function ChatConatiner({ resetOn, setResetOn }) {
 
     let imageUrl = null;
     try {
-      const imageResponse = await axios.post(
-        "http://localhost:3001/api/image",
-        { message: newMessage }
-      ); // Adjust the URL and payload as needed
+      const imageResponse = await axios.post("http:///command_image", {
+        message: newMessage,
+      }); // Adjust the URL and payload as needed
       imageUrl = imageResponse.data.imageUrl; // Adjust based on your response structure
     } catch (error) {
       console.error("Error fetching image:", error);
@@ -77,11 +76,11 @@ export default function ChatConatiner({ resetOn, setResetOn }) {
       {imageSelected && (
         <div className="chat-container" ref={messageContainerRef}>
           {messages.map((message, index) => (
-            <Message 
-              key={index} 
-              message={message.newMessage} 
-              isBot={message.isBot} 
-              isImage={message.isImage} 
+            <Message
+              key={index}
+              message={message.newMessage}
+              isBot={message.isBot}
+              isImage={message.isImage}
               imageUrl={message.imageUrl}
               onDownload={() => downloadImage(message.imageUrl)}
             />
@@ -90,9 +89,9 @@ export default function ChatConatiner({ resetOn, setResetOn }) {
       )}
 
       {/* 사용자 입력 부분 */}
-      <InputContainer 
-        imageSelected={imageSelected} 
-        sendMessage={sendMessage} 
+      <InputContainer
+        imageSelected={imageSelected}
+        sendMessage={sendMessage}
         resetOn={resetOn}
       />
     </div>
