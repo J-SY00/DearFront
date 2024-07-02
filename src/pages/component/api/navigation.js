@@ -8,10 +8,10 @@ export const toMainPage = async () => {
   }
 };
 
-export const toChatPage = async (navigate) => {
+export const toChatPage = async (navigate) => {  
+  navigate('/Chat');
   try {
     await startPage();
-    navigate('/Chat');
   } catch (error) {
     console.error('Error navigating to Chat Page:', error);
   }
