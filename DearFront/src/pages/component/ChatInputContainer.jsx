@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from 'axios';
 import Button from "./Button";
 import { postCommand } from "./api/pageAPI";
 
@@ -21,24 +20,6 @@ export default function InputContainer({ resetOn, imageSelected, sendMessage, se
   };
 
   const handleSendText = () => {
-    // axios.post(
-    //   "http://localhost:3001/command", {
-    //   command_contents: inputValue ,
-    //   // command_id: command_id
-    // }, {
-    //   headers: {
-    //     'Session-Id': sessionId 
-    //     },
-    //   }
-    // ).then(response => {
-    //     console.log("명령어 전송 : ", response.data);
-    //     setResponseMessage(response.data.message);
-    //     setInputValue('');
-    //   })
-    //   .catch(error => {
-    //     console.error('Error sending text:', error);
-    //     setResponseMessage('Error sending text');
-    //   });    
     postCommand(inputValue, sessionId);
   };
 

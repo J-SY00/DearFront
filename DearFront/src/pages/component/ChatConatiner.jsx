@@ -3,9 +3,8 @@ import Imageupload from "./ChatImageupload"
 import InputContainer from './ChatInputContainer';
 import Message from './ChatMessage';
 import { downloadImage, getImageFromServer } from './api/pageAPI';
-import axios from 'axios';
 
-export default function ChatConatiner({ resetOn, setResetOn, sessionId }) {
+export default function ChatConatiner({ resetOn, setResetOn, sessionId, setSessionId }) {
   const [imageSelected, setImageSelected] = useState(false);
   const messageContainerRef = useRef(null);
   const [messages, setMessages] = useState([]);
@@ -13,19 +12,6 @@ export default function ChatConatiner({ resetOn, setResetOn, sessionId }) {
   const sendMessage = async (newMessage) => {
     //답변 가져오는...
     const response = "";
-
-    // let imageUrl = null;
-    // try {
-    //   const imageResponse = await axios.post(
-    //     // "http://localhost:5000/api/image",
-    //     "http://localhost:3001/api/image",
-    //     { message: newMessage }
-    //   ); // Adjust the URL and payload as needed
-    //   imageUrl = imageResponse.data.imageUrl; // Adjust based on your response structure
-    //   console.log("Fetched image URL:", imageUrl);
-    // } catch (error) {
-    //   console.error("Error fetching image:", error);
-    // }
 
     const imageUrl = await getImageFromServer(newMessage)
 
@@ -61,7 +47,7 @@ export default function ChatConatiner({ resetOn, setResetOn, sessionId }) {
   return (
     <div className="chat-main">
       {/* 이미지 업로드 화면 */}
-      {!imageSelected && <Imageupload setImageSelected={setImageSelected} sessionId={sessionId}/>}
+      {!imageSelected && <Imageupload setImageSelected={setImageSelected} sessionId={sessionId} setSessionId={setSessionId}/>}
 
       {/* 이미지 업로드 후 대화창 화면 */}
       {imageSelected && (

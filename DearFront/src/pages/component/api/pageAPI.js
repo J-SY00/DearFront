@@ -31,7 +31,7 @@ export const startPage = async () => {
 };
 
 // 사용자 이미지 업로드
-export const uploadImage = async (file, sessionId) => {
+export const uploadImage = async (file) => {
   try {
     const formData = new FormData();
     formData.append('file', file);
@@ -42,7 +42,7 @@ export const uploadImage = async (file, sessionId) => {
       {
         headers: {
           'Content-Type': 'multipart/form-data',
-          'Session-Id': sessionId,
+          // 'Session-Id': sessionId,
         },
       }
     );
@@ -61,11 +61,11 @@ export const postCommand = async (inputValue, sessionId) => {
     const response = await api.post(
       '/command', { 
         command_contents: inputValue ,
-        // command_id: commandId
       },
       {
         headers: {
           'Session-Id': sessionId,
+          // 'Command-Id': commandId,
         },
       }
     );
@@ -92,18 +92,6 @@ export const getImageFromServer = async (newMessage) => {
     return imageUrl;
   } catch (error) {
     console.error("Error fetching image:", error);
-  }
-};
-
-// 리셋버튼 클릭 시 세션 초기화
-export const resetSession = async () => {
-  try {
-    const response = await api.post('/reset_session');
-    console.log('리셋 응답:', response.data);
-    return response.data;
-  } catch (error) {
-    console.error('resetSession Error:', error);
-    throw error;
   }
 };
 

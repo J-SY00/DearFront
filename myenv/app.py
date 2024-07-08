@@ -22,11 +22,8 @@ def index():
 
 # 채팅페이지
 @app.route('/start', methods=['GET'])
-def start_page():
-    # 세션 생성 및 session객체 저장
-    session_id = str(uuid.uuid4())
-    session['session_id'] = session_id
-    return jsonify(message="This is start Page", session_id=session_id)
+def start_page():    
+    return jsonify(message="This is start Page")
 
 # 서버로부터 이미지 결과 받음
 @app.route('/api/image', methods=['POST'])
@@ -43,8 +40,10 @@ def generate_image():
 # 서버로 이미지 보냄
 @app.route('/command_image', methods=['POST'])
 def upload_file(): 
-    # 세션아이디 가져오기
-    session_id = request.headers.get('Session-Id')
+    
+    # 세션 생성 및 session객체 저장
+    session_id = str(uuid.uuid4())
+    session['session_id'] = session_id
     
     file = request.files['file']
     if file:
@@ -66,17 +65,6 @@ def receive_command():
 
     print(f"사용자 명령 :  '{command_contents}' 세션아이디 :  {session_id}")
     return jsonify(message=command_contents, session_id=session_id)
-
-# 리셋버튼 클릭 시 세션 초기화
-@app.route('/reset_session', methods=['POST'])
-def reset_session():
-    session.pop('session_id', None)
-    new_session_id = str(uuid.uuid4())
-    session['session_id'] = new_session_id
-    
-    print(f"세션 리셋 : {new_session_id}")
-    return jsonify(message="세션 리셋", session_id=new_session_id)
-
 
 if __name__ == '__main__':
     app.run(port=3001)  # Flask 서버를 포트 3001에서 실행
