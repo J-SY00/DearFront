@@ -298,20 +298,38 @@
 }
 
 /* 채팅창 */
-.uploadImage{
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+
+.image-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.uploadImage {
   width: 350px;
   height: 300px;
   border-radius: 17px;
   transition: 0.3s;
+  margin-bottom: 20px;
 }
 
-.uploadImage:hover{
+.uploadImage:hover {
   box-shadow: 0px 4px 8px rgba(0, 0, 74, 0.248);
   border: 1px solid rgb(0, 0, 74, 0.5); 
+}
+
+.button-container {
+  display: flex;
+  gap: 10px; /* 버튼 사이 간격 */
 }
 
 .chat-container {

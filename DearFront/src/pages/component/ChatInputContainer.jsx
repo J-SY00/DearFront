@@ -3,7 +3,6 @@ import Button from "./Button";
 import { postCommand } from "./api/pageAPI";
 
 export default function InputContainer({ resetOn, imageSelected, sendMessage, sessionId }) {
-  //input 빈 문자열 선언, setInput함수로 input 값 업데이트
   const [inputValue, setInputValue] = useState("");
   const [responseMessage, setResponseMessage] = useState('');
 

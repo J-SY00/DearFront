@@ -38,9 +38,9 @@ export default function ChatConatiner({ resetOn, setResetOn, sessionId, setSessi
   //리셋버튼 관련
   useEffect(() => {
     if (resetOn) {
-      setImageSelected(false); //Reset버튼 누르면 이미지선택 초기화 상태로 변경
-      setMessages([]); //Reset버튼 누르면 메시지창 초기화로 변경
-      setResetOn(false); //true로 변한 resetOn 변수 다시 false로 초기화완료 상태로
+      setImageSelected(false);
+      setMessages([]);
+      setResetOn(false);
     }
   }, [resetOn]);
 
