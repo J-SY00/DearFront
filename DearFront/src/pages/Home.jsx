@@ -3,13 +3,12 @@ import React, { useEffect } from 'react';
 import Sidebar from "./component/HomeSidebar";
 import Header from "./component/HomeHeader";
 import HomeTutorial from "./component/HomeTutorial";
-import { mainPage } from './component/api/pageAPI';
-
+import { startPage } from './component/api/pageAPI';
 
 function Home() {
 
   useEffect(() => {
-    mainPage();
+    startPage();
   }, []);
 
   return (

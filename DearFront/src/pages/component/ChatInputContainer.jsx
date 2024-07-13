@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Button from "./Button";
-import { postCommand } from "./api/pageAPI";
 
-export default function InputContainer({ resetOn, imageSelected, sendMessage, sessionId }) {
+export default function InputContainer({ resetOn, imageSelected, sendMessage }) {
   const [inputValue, setInputValue] = useState("");
-  const [responseMessage, setResponseMessage] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,10 +14,6 @@ export default function InputContainer({ resetOn, imageSelected, sendMessage, se
   
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
-  };
-
-  const handleSendText = () => {
-    postCommand(inputValue, sessionId);
   };
 
   //리셋버튼 관련 : 입력창 초기화
@@ -39,7 +33,7 @@ export default function InputContainer({ resetOn, imageSelected, sendMessage, se
           value={inputValue}
           onChange={handleInputChange}
         />
-        <Button onClick={handleSendText}
+        <Button
           text="Send" 
           type="submit"
           disabled={!imageSelected || inputValue.trim() === ""}

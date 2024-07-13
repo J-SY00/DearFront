@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'http://localhost:3001';
+const baseURL = 'http://localhost:5000';
 
 const api = axios.create({
   baseURL,
@@ -18,7 +18,7 @@ export const mainPage = async () => {
   }
 };
 
-// GET 채팅페이지
+// 튜토리얼페이지
 export const startPage = async () => {
   try {
     const response = await api.get('/start');
@@ -30,8 +30,20 @@ export const startPage = async () => {
   }
 };
 
+// 채팅페이지(이미지업로드창)
+export const imgUpload = async () => {
+  try {
+    const response = await api.get('/imgupload');
+    console.log('서버 응답:', response.data); // 연결 확인
+    return response.data;
+  } catch (error) {
+    console.error('imgUploadPage Error : ', error);
+    throw error;
+  }
+};
+
 // 사용자 이미지 업로드
-export const uploadImage = async (file) => {
+export const uploadImage = async (file, sessionId) => {
   try {
     const formData = new FormData();
     formData.append('file', file);
@@ -42,7 +54,7 @@ export const uploadImage = async (file) => {
       {
         headers: {
           'Content-Type': 'multipart/form-data',
-          // 'Session-Id': sessionId,
+          'Session-Id': sessionId,
         },
       }
     );
@@ -55,49 +67,36 @@ export const uploadImage = async (file) => {
   }
 };
 
-// 명령어 전송
-export const postCommand = async (inputValue, sessionId) => {
-  try {
-    const response = await api.post(
-      '/command', { 
-        command_contents: inputValue ,
-      },
-      {
-        headers: {
-          'Session-Id': sessionId,
-          // 'Command-Id': commandId,
-        },
-      }
-    );
-    console.log('명령어 전송:', response.data);
-    return response.data;
-  } catch (error) {
-    console.error('Error sending text:', error);
-    throw error;
-  }
-};
-
-// 서버의 답장 받아오는
-export const getImageFromServer = async (newMessage) => {
+// 명령어 전송 및 서버의 답장 받아오는
+export const getImageFromServer = async (newMessage, sessionId) => {
   let imageUrl = null;
 
   try {
     // 이미지 생성 요청
-    const imageResponse = await api.post(
-      '/api/image', { 
-      message: newMessage
-    });
-    imageUrl = imageResponse.data.imageUrl;
-    console.log("Fetched image URL:", imageUrl);
+    const response = await api.post(
+      '/imageEdit', { 
+        command_contents: newMessage ,
+      },
+      {
+        headers: {
+          'Session-Id': sessionId,
+        },
+      }
+    );
+    imageUrl = response.request.responseURL;
+    console.log("수정된 이미지 : ", imageUrl);
     return imageUrl;
   } catch (error) {
-    console.error("Error fetching image:", error);
+    console.error("수정 이미지 업로드 오류 :", error);
   }
 };
 
 //이미지 url get
 export const getImageURL = async (imageUrl) => {
   console.log("Getting Image URL to download:", imageUrl);
+  if (!imageUrl.startsWith('http')) {
+    imageUrl = api.defaults.baseURL + imageUrl;
+  }
   return await api.get(
     imageUrl, { 
     responseType: 'blob' 
