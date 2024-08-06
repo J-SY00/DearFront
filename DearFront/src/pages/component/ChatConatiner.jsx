@@ -1,38 +1,23 @@
 import React, { useState, useRef, useEffect } from 'react';
-import Imageupload from "./ChatImageupload"
+import Imageupload from "./ChatImageupload";
 import InputContainer from './ChatInputContainer';
 import Message from './ChatMessage';
 import { downloadImage, getImageFromServer } from './api/pageAPI';
 
-export default function ChatConatiner({ resetOn, setResetOn, sessionId}) {
+export default function ChatContainer({ resetOn, setResetOn, sessionId }) {
   const [imageSelected, setImageSelected] = useState(false);
   const messageContainerRef = useRef(null);
   const [messages, setMessages] = useState([]);
 
-  // const sendMessage = async (newMessage) => {
-  //   // 답변 가져오는...
-  //   const response = "";
-
-  //   const imageUrl = await getImageFromServer(newMessage, sessionId);
-
-  //   setMessages([
-  //     ...messages,
-  //     { isBot: false, newMessage },
-  //     {
-  //       isBot: true,
-  //       newMessage: response,
-  //       isImage: Boolean(imageUrl),
-  //       imageUrl,
-  //     },
-  //   ]);
-  // };
-
-  const sendMessage = async (newMessage) => {
-
-    // 메시지에 'Loading...' 추가
+  const sendMessage = async (newMessage, initialImageUrl) => {
     setMessages([
       ...messages,
-      { isBot: false, newMessage },
+      {
+        isBot: false, 
+        newMessage, 
+        isImage: Boolean(initialImageUrl), 
+        imageUrl: initialImageUrl
+      },
       {
         isBot: true,
         newMessage: "Loading...",
@@ -41,17 +26,16 @@ export default function ChatConatiner({ resetOn, setResetOn, sessionId}) {
     ]);
 
     // 이미지 URL 가져오기
-    const imageUrl = await getImageFromServer(newMessage, sessionId);
+    const fetchedImageUrl = await getImageFromServer(newMessage, sessionId);
 
-    // 'Loading...' 메시지를 이미지 URL 또는 오류 메시지로 대체
     setMessages((prevMessages) =>
       prevMessages.map((message, index) =>
         index === prevMessages.length - 1
           ? {
               isBot: true,
-              newMessage: imageUrl ? "" : "이미지를 가져오지 못했습니다.",
-              isImage: Boolean(imageUrl),
-              imageUrl,
+              newMessage: fetchedImageUrl ? "" : "이미지를 가져오지 못했습니다.",
+              isImage: Boolean(fetchedImageUrl),
+              imageUrl: fetchedImageUrl,
             }
           : message
       )
@@ -75,10 +59,28 @@ export default function ChatConatiner({ resetOn, setResetOn, sessionId}) {
     }
   }, [resetOn]);
 
+  // Function to handle initial image upload
+  const handleImageUpload = (uploadedImageUrl) => {
+    setImageSelected(true);
+    setMessages([...messages, 
+      { 
+        isBot: false, 
+        newMessage: '', 
+        isImage: true, 
+        imageUrl: uploadedImageUrl 
+      }]);
+  };
+
   return (
     <div className="chat-main">
       {/* 이미지 업로드 화면 */}
-      {!imageSelected && <Imageupload setImageSelected={setImageSelected} sessionId={sessionId}/>}
+      {!imageSelected && (
+        <Imageupload 
+          setImageSelected={setImageSelected} 
+          sessionId={sessionId} 
+          onImageUpload={handleImageUpload} 
+        />
+      )}
 
       {/* 이미지 업로드 후 대화창 화면 */}
       {imageSelected && (

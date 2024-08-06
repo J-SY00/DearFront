@@ -15,7 +15,7 @@ export default function Message({
         {isImage && imageUrl && (
           <div className="message-img-container">
             <img src={imageUrl} alt="Fetched from the server" />
-            <Button text="download" onClick={onDownload} />
+            {isBot && <Button text="Download" onClick={onDownload} />}
           </div>
         )}
       </div>

@@ -3,7 +3,7 @@ import UploadImage from './assets/img_upload.svg';
 import { uploadImage } from './api/pageAPI';
 import Button from './Button';
 
-export default function Imageupload({ setImageSelected, sessionId }) {
+export default function Imageupload({ setImageSelected, sessionId, onImageUpload }) {
   const [imagePreview, setImagePreview] = useState(null);
   const [file, setFile] = useState(null);
 
@@ -17,7 +17,6 @@ export default function Imageupload({ setImageSelected, sessionId }) {
     const previewUrl = URL.createObjectURL(selectedFile);
     setImagePreview(previewUrl);
     setFile(selectedFile);
-    // console.log('Selected file:', selectedFile);
   };
 
   const handleImageSubmit = async () => {
@@ -28,10 +27,9 @@ export default function Imageupload({ setImageSelected, sessionId }) {
 
     try {
       // 이미지 업로드 시 세션 설정
-      // console.log('Uploading file:', file);
-      await uploadImage(file, sessionId);
-      // console.log('Upload response:', ImageUpload);
+      const uploadedImageUrl = await uploadImage(file, sessionId);
       setImageSelected(true);
+      onImageUpload(URL.createObjectURL(file)); // 업로드된 이미지 URL 전달
     } catch (error) {
       console.error('Error uploading file:', error);
     }
