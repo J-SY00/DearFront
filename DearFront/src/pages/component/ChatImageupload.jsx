@@ -3,7 +3,7 @@ import UploadImage from './assets/img_upload.svg';
 import { uploadImage } from './api/pageAPI';
 import Button from './Button';
 
-export default function Imageupload({ setImageSelected, sessionId }) {
+export default function Imageupload({ setImageSelected, sessionId, sendSelectedImage }) {
   const [imagePreview, setImagePreview] = useState(null);
   const [file, setFile] = useState(null);
 
@@ -27,11 +27,11 @@ export default function Imageupload({ setImageSelected, sessionId }) {
     }
 
     try {
-      // 이미지 업로드 시 세션 설정
-      // console.log('Uploading file:', file);
+      // Upload the image and set session
       await uploadImage(file, sessionId);
-      // console.log('Upload response:', ImageUpload);
       setImageSelected(true);
+      // Send the selected image to the chat
+      sendSelectedImage(imagePreview);
     } catch (error) {
       console.error('Error uploading file:', error);
     }

@@ -7,6 +7,7 @@ export default function Message({
   isImage,
   imageUrl,
   onDownload,
+  showDownloadButton,
 }) {
   return (
     <div className={`message-container ${isBot ? "bot" : "user"}`}>
@@ -14,8 +15,10 @@ export default function Message({
         {message}
         {isImage && imageUrl && (
           <div className="message-img-container">
-            <img src={imageUrl} alt="Fetched from the server" />
-            <Button text="download" onClick={onDownload} />
+            {isImage ? <img src={imageUrl} alt="Uploaded" /> : <p>{message}</p>}
+            {isBot && showDownloadButton && isImage && (
+              <Button text="Download" onClick={onDownload} />
+            )}
           </div>
         )}
       </div>
