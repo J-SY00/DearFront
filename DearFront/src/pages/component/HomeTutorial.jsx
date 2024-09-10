@@ -22,13 +22,13 @@ const HomeTutorial = () => {
           tutorial!
         </p>
       </div>
-      
 
       <div id="tutorial-colorpop" className="tutorial-function">
         <p className="function-text">COLORPOP</p>
         <p className="tutorial-text">
           You can select the object to change its color to black and white.
-          Please check if this is a command that includes the keyword 'colorpop'.
+          Please check if this is a command that includes the keyword
+          'colorpop'.
         </p>
         <img src={picture2} width="1200px" />
         <br />
@@ -50,27 +50,6 @@ const HomeTutorial = () => {
           check the command you write contains the keyword 'replace'.
         </p>
         <img src={picture3} width="1200px" />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-      </div>
-
-      <div id="tutorial-emoji" className="tutorial-function">
-        <p className="function-text">EMOJI</p>
-        <p className="tutorial-text">
-          You can add emoji by describing the position. Remember, the detailed
-          description of the position and the emoji creates more accurate
-          result! Please check the command you write contains the keyword
-          'emoji'.
-        </p>
-        <img src={picture4} width="1200px" />
         <br />
         <br />
         <br />
@@ -105,9 +84,8 @@ const HomeTutorial = () => {
       <div id="tutorial-?" className="tutorial-function">
         <p className="function-text">GQA(OBJECT RECOGNITION)</p>
         <p className="tutorial-text">
-          You can ask about the information of the image, such as the number of
-          a certain object. Please write question mark '?' at the end of your
-          command.
+          You can ask about the information of the image, such as things
+          contained in the image or the number of a certain object.
         </p>
         <img src={picture6} width="1200px" />
         <br />
@@ -128,7 +106,7 @@ const HomeTutorial = () => {
       </div>
 
       <div id="start-button">
-        <Button text="Start Now" onClick={() => navigate('/Chat')} />
+        <Button text="Start Now" onClick={() => navigate("/Chat")} />
         <br />
         <br />
         <br />

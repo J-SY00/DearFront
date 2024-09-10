@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Button from "./Button";
 
-export default function InputContainer({ resetOn, imageSelected, sendMessage }) {
+export default function InputContainer({
+  resetOn,
+  imageSelected,
+  sendMessage,
+}) {
   const [inputValue, setInputValue] = useState("");
 
   const handleSubmit = (e) => {
@@ -11,7 +15,7 @@ export default function InputContainer({ resetOn, imageSelected, sendMessage }) 
       setInputValue("");
     }
   };
-  
+
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
@@ -25,7 +29,7 @@ export default function InputContainer({ resetOn, imageSelected, sendMessage }) 
 
   return (
     <div className="main-bottom">
-      <p>Avaliable keyword : Select, ColorPop, Blur, Replace, ?</p>
+      <p>Keyword for image edit : ColorPop, Blur, Replace</p>
       <form onSubmit={handleSubmit} className="input-container">
         <input
           type="text"
@@ -34,7 +38,7 @@ export default function InputContainer({ resetOn, imageSelected, sendMessage }) 
           onChange={handleInputChange}
         />
         <Button
-          text="Send" 
+          text="Send"
           type="submit"
           disabled={!imageSelected || inputValue.trim() === ""}
         />
