@@ -5,24 +5,36 @@
   font-family: "Inconsolata", monospace;
   font-optical-sizing: auto;
   background: #8293B7;
-  height:100vh;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  color: #fff;
 }
-
 
 /* 메인화면 */
 .user-wrap {
-  position: fixed;
-  top: 70px;
-  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .user-wrap:hover .main-logo img {
   transition: opacity ease 0.3s;
   opacity: 0.5;
+  transition: transform ease 0.3s;
+  transform: scale(1.2);
 }
 
-.main-logo{
+.main-logo {
   position: relative;
   display: flex;
   justify-content: center;
@@ -30,20 +42,26 @@
 }
 
 .main-logo > img {
-  width: 56%;
+  width: 80%;
   height: auto;
-  transform: translateY(-5%);
-  bottom: 5%;
+  transition: opacity 0.3s ease;
 }
 
 .main-logo p {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
   color: white;
   font-size: 8rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 74, 0.5); 
+  text-shadow: 2px 2px 4px rgba(0, 0, 74, 0.5);
+  margin: 0;
+  pointer-events: none; /* Prevents the text from interfering with hover events */
+  text-align: center;
+  white-space: nowrap;
 }
+
+
 
 /* 홈화면 */
 .home {
@@ -156,8 +174,6 @@
 
 
 
-
-
 .sidebar ul li:hover {
   color: rgb(0, 0, 74, 0.5); 
 }
@@ -168,32 +184,77 @@
   display: none;
 }
 
-.img-container{
+.img-container {
   position: relative;
-  width: 60%;
+  width: 80%;
   height: auto;
   margin: 0 auto;
   background-color: #000;
 }
 
-.img-container img {
+.main-image {
   width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 0;
 }
 
-.img-text{
+.img-text {
   position: absolute;
-  align-self:center;
-  top: 50%;
-  bottom: 50%;
+  top: 0;
   left: 0;
-  right: 0;
+  width: 100%;
+  height: 100%;
+  display: flex; /* Use flexbox to center the text */
+  justify-content: center;
+  align-items: center;
   color: white;
-  background-color: rgba(38, 38, 38, 0.5);
-  font-size:2vw;
+  background-color: rgba(38, 38, 38, 0.5); /* Semi-transparent background */
+  font-size: 36px;
   text-align: center;
   padding: 10px;
   box-sizing: border-box;
+  z-index: 1;
 }
+
+.img-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  overflow: hidden; /* Prevents any content from overflowing outside the wrapper */
+}
+
+/* Both images will now stack on top of each other */
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute; /* Stack the images inside the wrapper */
+  top: 0;
+  left: 0;
+  transition: opacity 0.3s ease;
+}
+
+.edit-image {
+  opacity: 0;
+  z-index: 1;
+}
+
+.default-image {
+  opacity: 1;
+  z-index: 0;
+}
+
+
+.img-wrapper:hover .edit-image {
+  opacity: 1;
+}
+
+.img-wrapper:hover .default-image {
+  opacity: 1;
+}
+
 
 .desc-text {
   margin-top: 0.5rem;
@@ -405,7 +466,9 @@
 .main-bottom{
   position: fixed;
   bottom: 5px;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
   padding: 0 5px;
 }
 
