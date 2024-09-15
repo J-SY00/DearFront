@@ -1,13 +1,9 @@
-import React, { useState } from "react";
-import UploadImage from "./assets/img_upload.svg";
-import { uploadImage } from "./api/pageAPI";
-import Button from "./Button";
+import React, { useState } from 'react';
+import UploadImage from './assets/img_upload.svg';
+import { uploadImage } from './api/pageAPI';
+import Button from './Button';
 
-export default function Imageupload({
-  setImageSelected,
-  sessionId,
-  sendSelectedImage,
-}) {
+export default function Imageupload({ setImageSelected, sessionId, sendSelectedImage }) {
   const [imagePreview, setImagePreview] = useState(null);
   const [file, setFile] = useState(null);
 
@@ -26,7 +22,7 @@ export default function Imageupload({
 
   const handleImageSubmit = async () => {
     if (!file) {
-      console.log("No file selected");
+      console.log('No file selected');
       return;
     }
 
@@ -37,7 +33,7 @@ export default function Imageupload({
       // Send the selected image to the chat
       sendSelectedImage(imagePreview);
     } catch (error) {
-      console.error("Error uploading file:", error);
+      console.error('Error uploading file:', error);
     }
   };
 
@@ -46,17 +42,17 @@ export default function Imageupload({
       <div className="image-container">
         <label htmlFor="upload-button">
           {imagePreview ? (
-            <img className="uploadImage" src={imagePreview} alt="Preview" />
+            <img className='uploadImage' src={imagePreview} alt="Preview" />
           ) : (
-            <img className="uploadImage" src={UploadImage} alt="Upload" />
+            <img className='uploadImage' src={UploadImage} alt="Upload" />
           )}
         </label>
 
-        <input
-          id="upload-button"
-          type="file"
-          style={{ display: "none" }}
-          onChange={handleImageChange}
+        <input 
+          id="upload-button" 
+          type="file" 
+          style={{ display: 'none' }} 
+          onChange={handleImageChange} 
         />
 
         {imagePreview && (
