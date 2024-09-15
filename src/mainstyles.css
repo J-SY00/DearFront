@@ -405,11 +405,11 @@
   transition: 0.3s;
   margin-bottom: 20px;
   object-fit: cover;
+  border: 3px solid #000;
 }
 
 .uploadImage:hover {
-  box-shadow: 0px 4px 8px rgba(0, 0, 74, 0.248);
-  border: 1px solid rgb(0, 0, 74, 0.5); 
+  box-shadow: 0px 4px 8px rgba(0, 0, 74, 0.5);
 }
 
 .button-container {
@@ -460,16 +460,17 @@
 .user, .bot {
   border: 3px solid black;
   background: #eaeaea;
+  color: #000;
 }
 
 .user {
-  border-radius: 0rem 0rem 0rem 0rem;
+  border-radius: 1rem 0rem 1rem 1rem;
   background: linear-gradient(to left, #eaeaea, #a8a2a2);
   align-items: end;
 }
 
 .bot {
-  border-radius: 0rem 2rem 2rem 2rem;
+  border-radius: 0rem 1rem 1rem 1rem;
   background: linear-gradient(to right, #eaeaea, #a8a2a2);
   align-items: start;
 }
