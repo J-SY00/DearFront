@@ -397,6 +397,8 @@
   position: fixed;
   top: 70px;
   bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
   overflow-y: scroll;
   scroll-behavior: smooth;
@@ -411,6 +413,7 @@
   margin: 0 0.5rem 1rem 0.5rem;
   padding: 1.5rem;
   font-size: 25px;
+  color: #111111;
   display: flex;
   flex-direction: column; 
   text-align: justify;
