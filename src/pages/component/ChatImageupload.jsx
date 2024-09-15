@@ -32,7 +32,7 @@ export default function Imageupload({
 
     try {
       // Upload the image and set session
-      //await uploadImage(file, sessionId);
+      await uploadImage(file, sessionId);
       setImageSelected(true);
       // Send the selected image to the chat
       sendSelectedImage(imagePreview);
