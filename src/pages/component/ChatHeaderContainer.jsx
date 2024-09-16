@@ -12,7 +12,7 @@ export default function HeaderContainer({ onResetChatSelected }) {
 
   return (
     <div className="chat-header">
-      <Button text="Reset" onClick={handleResetClick} />
+        <Button text="Reset" onClick={handleResetClick} />
     </div>
   );
 }

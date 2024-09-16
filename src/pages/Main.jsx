@@ -23,6 +23,7 @@ const Main = () => {
           <div className="main-logo">
             <img src="img/IMG_4263.png" alt="" />
             <p>DEAR IMAGE</p>
+            <p>The easiest image edit tool</p>
           </div>
         </Link>
       </div>

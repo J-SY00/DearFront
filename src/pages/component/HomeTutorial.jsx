@@ -101,30 +101,11 @@ const HomeTutorial = () => {
           <img src={samplepic_gqa} width="1200px" className="edit-image" />
         </div>
         <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
       </div>
 
-      <div id="start-button">
+      <div className="start-button">
         <Button text="Start Now" onClick={() => navigate("/Chat")} />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+        <br /><br />
       </div>
     </div>
   );
