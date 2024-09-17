@@ -22,7 +22,7 @@ const Main = () => {
         <Link to="/home">
           <div className="main-logo">
             <img src="img/IMG_4263.png" alt="" />
-            <p>DEAR IMAGE</p>
+            <h1>DEAR IMAGE</h1>
             <p>The easiest image edit tool</p>
           </div>
         </Link>

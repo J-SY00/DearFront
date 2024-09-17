@@ -11,8 +11,11 @@ export default function HeaderContainer({ onResetChatSelected }) {
   };
 
   return (
+    <header className="home-header">
+      <h1>DEAR IMAGE</h1>
     <div className="chat-header">
         <Button text="Reset" onClick={handleResetClick} />
     </div>
+    </header>
   );
 }
