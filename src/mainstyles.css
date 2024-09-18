@@ -513,17 +513,25 @@
   /* background: linear-gradient(to right, #ffffff, #d3d3d3); */
   align-self: flex-start;
   margin-right: auto;
+
 }
 
 .message-img-container {
+  width: 100%; /* 이미지 컨테이너의 너비를 100%로 설정 */
+  height: auto;
   display: flex;
-  
-  position: relative; 
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 10px; 
 }
 
 .message-img-container img {
-  max-width: 100%;
-  height: auto;
+  width: 100% !important;  /* 이미지가 컨테이너의 너비를 가득 채우게 */
+  height: auto !important; /* 세로 비율을 자동으로 맞춤 */
+  max-width: 600px !important; /* 원하는 최대 너비 지정 */
+  max-height: 400px !important; /* 원하는 최대 높이 지정 */
+  object-fit: contain; /* 이미지 비율 유지 */
   border: 3px solid #ccc;
   padding: 5px;
   background-color: #fff;
