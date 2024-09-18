@@ -1,23 +1,53 @@
 /* 기본 스타일 */
-
 @font-face {
   font-family: 'NeoDunggeunmo';
   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'CWDangamAsac-Bold';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/CWDangamAsac-Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Cafe24SsurroundAir';
+  src: url('https://gcore.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
+.main-page, .home-page, .chat-page {
+  min-height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
+.home-page {
+  background-image: url("./pages/component/assets/background_tutorialPage.jpg");
+}
+
+.main-page {
+  background-image: url("./pages/component/assets/background_mainPage.jpg");
+}
+
+.chat-page {
+  background-image: url("./pages/component/assets/background_chatPage.jpg");
+}
 
 .App {
-  font-family: 'NeoDunggeunmo', monospace;
+  /* font-family: 'NeoDunggeunmo', monospace; */
+  /* font-family: 'Orbit-Regular'; */
+  font-family: 'Cafe24SsurroundAir';
   font-optical-sizing: auto;
-  background: #8293B7;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 20px;
   box-sizing: border-box;
   color: #fff;
 }
@@ -25,7 +55,7 @@
 /* 메인화면 */
 .user-wrap {
   position: absolute;
-  top: 50%;
+  top: 48%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
@@ -35,13 +65,6 @@
   width: 100%;
 }
 
-.user-wrap:hover .main-logo img {
-  transition: opacity ease 0.3s;
-  opacity: 0.5;
-  transition: transform ease 0.3s;
-  transform: scale(1.2);
-}
-
 .main-logo {
   position: relative;
   display: flex;
@@ -49,151 +72,164 @@
   align-items: center;
 }
 
-.main-logo > img {
-  width: 80%;
+.main-logo img {
+  width: 65%;
   height: auto;
-  transition: opacity 0.3s ease;
+  transition: transform 0.5s ease, filter 0.3s ease;
 }
 
-.main-logo p {
+.main-logo p, .main-logo h1 {
   position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-size: 8rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 74, 0.5);
+  top: 80%;
+  transform: translate(-50%, -70%);
+  color: #040439;
+  font-size: 5.5rem;
   margin: 0;
-  pointer-events: none; /* Prevents the text from interfering with hover events */
+  pointer-events: none;
   text-align: center;
   white-space: nowrap;
 }
 
+@keyframes shine {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
 
+.main-logo h1{
+  font-family: 'CWDangamAsac-Bold';
+  margin-top: 90px;  
+}
 
-/* 홈화면 */
+.main-logo img:hover ~ h1 {
+  background: linear-gradient(-75deg, #040439 30%, #04043992 50%, #040439 70%); 
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: shine 4s linear infinite;
+}
+
+.main-logo p {
+  margin-top: 150px;
+  font-weight: bold;
+  font-size: 2rem;  
+  color: #848484;
+}
+
 .home {
   display: flex;
+  flex-direction: row;
+  height: 100vh;
+  position: relative;
+}
+
+.home-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1000;
+}
+
+.home-header > h1 {
+  font-family: 'CWDangamAsac-Bold';
+  font-size: 45px;
+  font-weight: bold;
+  background-clip: text;
+  color: #040439;
+}
+
+.home-button {
+  position: absolute;
+  top: 13px;
+  right: 20px;
 }
 
 .home-container {
   display: flex;
-  flex: 1;
-  overflow:hidden;
-}
-
-.home-sidebar {
-  width: 500px;
-  transition: width 0.3s;
+  flex-direction: row;
+  margin-top: 200px;
+  height: calc(100vh - 220px);
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .home-hometutorial {
-  flex: 1;
+  color: #000;
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
   overflow-y: auto;
-}
-
-
-/* 사이드바 */
-.sidebar {
-  position: fixed;
-  top: 100px; 
-  left: 0; 
-  height:100vh;
-  width: 500px;
-  padding: 60px 20px;
-  /* background: linear-gradient(to top, #eaeaea,#98A6C4, #5E74A3); */
-}
-
-.sidebar ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.sidebar ul li {
-  cursor: pointer;
-  font-size: 25px;
-  margin-bottom: 40px;
-  text-decoration: none; 
-  color: white; 
-  transition: color 0.5s ease;
-  
-}
-
-
-/* 홈화면 가운데부분 정렬*/
-.home-tutorial {
-  position: grid;
-  margin-top: 100px;
-  top: 130px; 
-  left: 1000px; 
-  width: calc(100%); 
-  height: calc(100vh - 130px); 
-  overflow-y: auto;
-  padding: 20px 20px 30px 20px;
-  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #5E74A3;
-  border:4px solid #000000;
+  padding-top: 25px;
+  box-sizing: border-box;
+  overflow-y: auto;
 }
-
-.tutorial-function {
-  
-  margin-top: 10px;
-  
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
- 
-  padding: 20px 10px;
-  
-}
-
-.tutorial-text{
-  width: 120%;
-}
-
-.tutorial-img {
-  width: 140%;
-}
-
-
-/* 화면 넓이 줄어들 때 */
-@media (max-width: 800px) {
-  .home-sidebar {
-    width: 200px;
-  }
-
-  .sidebar {
-    width: 200px;
-  }
-
-  .hide-on-small {
-    display: none;
-  }
-
-  .home-hometutorial {
-    padding: 10px;
-  }
-
-  .tutorial-text {
-    width: 180%;
-  }
-
-}
-
-
-
-.sidebar ul li:hover {
-  color: rgb(0, 0, 74, 0.5); 
-}
-
-
 
 .home-tutorial::-webkit-scrollbar {
   display: none;
+}
+
+.home-hometutorial {
+  scrollbar-width: none;
+}
+
+/* 사이드바 스타일링 */
+.home-sidebar {
+  position: fixed;
+  top: 85px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 980px);
+  z-index: 1000;
+}
+
+
+.sidebar ul li:hover {
+  color: black;
+}
+
+.sidebar {
+  top: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  padding: 5px 0;
+  z-index: 1000;
+}
+
+.sidebar ul {
+  font-size: 2rem;
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  padding: 10px;
+  margin: 0;
+  gap: 12rem;
+}
+
+.sidebar ul li {
+  color: rgb(0, 0, 74, 0.5); 
+  position: relative;
+  cursor: pointer; 
+  padding: 0 10px;
+  transition: color 0.3s;
 }
 
 .img-container {
@@ -217,11 +253,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex; /* Use flexbox to center the text */
+  display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-  background-color: rgba(38, 38, 38, 0.5); /* Semi-transparent background */
+  background-color: rgba(38, 38, 38, 0.5);
   font-size: 36px;
   text-align: center;
   padding: 10px;
@@ -234,15 +270,14 @@
   width: 100%;
   height: auto;
   aspect-ratio: 16/9;
-  overflow: hidden; /* Prevents any content from overflowing outside the wrapper */
+  overflow: hidden;
 }
 
-/* Both images will now stack on top of each other */
 .img-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  position: absolute; /* Stack the images inside the wrapper */
+  position: absolute;
   top: 0;
   left: 0;
   transition: opacity 0.3s ease;
@@ -258,7 +293,6 @@
   z-index: 0;
 }
 
-
 .img-wrapper:hover .edit-image {
   opacity: 1;
 }
@@ -267,101 +301,79 @@
   opacity: 1;
 }
 
-
 .desc-text {
   margin-top: 0.5rem;
   margin-bottom: 14rem;
-  font-size: 24px;
+  margin-left: 120px;
+  font-size: 1.5rem;
 }
 
 .tutorial-function {
   position: relative;
   align-self: center;
-  width:60%;
+  text-align: center;
 }
 
 .function-text {
-  position: inherit;
-  
-  font-size: 24px;
+  font-size: 3rem;
 }
 
 .tutorial-text {
-  font-size: 20px;
+  font-size: 1.5rem;
 }
+
 
 .start-button {
-  display: inline-block;
-  margin-bottom: 100px;
-}
-
-.send {
-  left: 500px;
-}
-
-.home-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  padding-left: 20px;
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: center; */
+  display: flex;
+  justify-content: center;
   align-items: center;
-  /* background: linear-gradient(to bottom, #eaeaea,#98A6C4, #5E74A3); */
-  background-color: 5E74A3;
-  /* border-bottom:3px solid #5E74A3; */
+  height: 150px;
 }
 
-.home-header > h1{
-  padding-top: 10px;
-  font-size: 50px;
-  font-weight: bold;
-  margin-bottom: 0;
-  background: linear-gradient(to bottom, #09024f, #2410f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
+.start-button > button {
+  padding-bottom: 20px;
 }
 
-.home-header > p{
-  font-size: 20px;
-  color:rgb(0, 0, 74, 0.5)
-}
+/* 화면 넓이 줄어들 때 */
+@media (max-width: 800px) {
+  .home-sidebar {
+    width: 200px;
+  }
 
-.home-button {
-  position: absolute;
-  top: 16px;
-  right: 10px;
-}
+  .sidebar {
+    width: 200px;
+  }
 
-.vl {
-  border-left: 6px solid #5E74A3;
-  height: 500px;
-  position: absolute;
-  left: 50%;
-  margin-left: -3px;
-  top: 0;
+  .hide-on-small {
+    display: none;
+  }
+
+  .home-hometutorial {
+    padding: 10px;
+  }
+
+  .tutorial-text {
+    width: 180%;
+  }
 }
 
 
 /* 버튼 관련 */
 .button {
   width: auto;
-  height: 40px;
-  border-radius: 0px;
-  border: 3px solid black;
+  height: 50px;
+  margin-top: 10px;
+  padding: 5px 20px;
+  border-radius: 20px;
+  border: none;
   color: black;
-  background: linear-gradient(to bottom, #eaeaea, #a8a2a2);
-  font-size: 25px;
+  background-color: transparent;
+  font-size: 2rem;
   transition: box-shadow 0.2s;
 }
 
 .button:hover {
-  box-shadow: 0px 4px 8px rgba(0, 0, 74, 0.248);
+  box-shadow: 0 5px 10px -3px rgba(0, 0, 0, 0.248);
 }
 
 /* 입력창에 입력안했을 때 상태 */
@@ -370,13 +382,17 @@
   pointer-events: none;
 }
 
+.send {
+  left: 500px;
+}
+
 /* 입력창 헤더(Reset버튼)부분 */
 .chat-header{
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  padding-top: 10px;
+  padding-top: 13px;
   padding-right: 20px;
   padding-bottom: 10px;
   display: flex;
@@ -384,7 +400,6 @@
 }
 
 /* 채팅창 */
-
 .image-upload {
   display: flex;
   flex-direction: column;
@@ -395,13 +410,12 @@
   bottom: 100px;
   left: 50%;
   transform: translateX(-50%);
-  width: 100%;
+  /* width: 80%; */
+  width: 400px;
   height: auto;
   padding: 0 10px;
-  /* Gradient in the padding area */
-  background-image: linear-gradient(to bottom, #5E74A3, #8293B7 50%, #5E74A3);
   background-origin: padding-box;
-  background-clip: content-box, padding-box; /* Ensure gradient is only in the padding */
+  background-clip: content-box, padding-box;
   z-index: 1;
 }
 
@@ -412,30 +426,35 @@
   justify-content: center;
   overflow:auto;
   padding: 10px;
+  overflow: hidden;
 }
 
 .uploadImage {
-  width: 600px;
+  width: 400px;
+  /* width: 85%; */
   height: auto;
+  /* height: 500px; */
   transition: 0.3s;
-  margin-bottom: 20px;
+  margin-bottom: 3px;
   object-fit: cover;
-  border: 3px solid #000;
+  border-radius: 25px;
+  transition: transform 0.3s ease;
+  object-fit: cover;
+  border: 3px solid #ccc;
 }
 
 .uploadImage:hover {
-  box-shadow: 0px 4px 8px rgba(0, 0, 74, 0.5);
+  transform: translateY(-10px);
 }
 
-.button-container {
-  display: flex;
-  gap: 10px; /* 버튼 사이 간격 */
+.image-upload button{
+  background-color: #fff;
 }
 
 .chat-container {
   position: fixed;
-  top: 60px;
-  bottom: 100px;
+  top: 75px;
+  bottom: 170px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -443,10 +462,8 @@
   overflow-y: scroll;
   scroll-behavior: smooth;
   padding: 0 10px;
-  /* Gradient in the padding area */
-  background-image: linear-gradient(to bottom, #5E74A3, #8293B7 50%, #5E74A3);
   background-origin: padding-box;
-  background-clip: content-box, padding-box; /* Ensure gradient is only in the padding */
+  background-clip: content-box, padding-box;
   z-index: 1;
 }
 
@@ -462,11 +479,14 @@
   flex-direction: column;
   text-align: justify;
   min-height: fit-content; 
-  max-width: 100%; /* 말풍선 너비를 페이지의 100%까지 확장 가능하게 설정 */ 
+  width: 45%;
 }
 
 .message-img-container > img {
-  width: 30%;
+  /* width: 45%; */
+  width: 300px;
+  align-self: flex-end;
+  margin-left: auto;
 }
 
 .message-container > div {
@@ -474,21 +494,26 @@
 }
 
 .user, .bot {
-  border: 3px solid black;
-  background: #eaeaea;
+  border-radius: 20px;
+  /* border: 1px solid rgb(149, 149, 149); */
+  background: #ffffff;
   color: #000;
+  box-shadow: 0 5px 10px rgba(172, 172, 172, 0.248);
 }
 
 .user {
-  border-radius: 0rem 0rem 0rem 0rem;
-  background: linear-gradient(to left, #eaeaea, #a8a2a2);
-  align-items: end;
+  /* border-radius: 1rem 0rem 8rem 8rem; */
+  /* background: linear-gradient(to left, #f3f3f3, #d3d3d3); */
+  align-self: flex-end;
+  margin-left: auto;
 }
 
 .bot {
-  border-radius: 0rem 0rem 0rem 0rem;
-  background: linear-gradient(to right, #eaeaea, #a8a2a2);
-  align-items: start;
+  /* border-radius: 0rem 8rem 8rem 8rem; */
+  /* background: linear-gradient(to right, #ffffff, #d3d3d3); */
+  align-self: flex-start;
+  margin-right: auto;
+
 }
 
 .message-img-container {
@@ -519,7 +544,6 @@
   margin-left: 5px;
 }
 
-/* 하단 입력창 */
 .main-bottom{
   position: fixed;
   bottom: 5px;
@@ -529,33 +553,48 @@
   padding: 0 20px;
 }
 
-.input-container{
+.input-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background: #D9D9D9;
-  padding: 5px;
-  border: 3px solid black;
-  width: 100%;
-  height: 100%;
+  gap: 10px;
+}
+
+.input-container > input {
+  flex: 1;
 }
 
 .input-container input[type="text"] {
   flex: 1;
-  border: none;
-  outline: none;
-  font-size: 25px;
+  font-size: 2rem;
   color: #111111;
-  background: transparent;
+  background: #ffffff;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  border: 1px solid rgb(201, 201, 201);
+  outline: none;
+}
+
+.input-container > button {
   border: none;
-  margin-left: 8px;
+  background-color: #ffffff;
+  border: 1px solid rgb(201, 201, 201);
+  color: rgb(0, 0, 0);
+  border-radius: 20px;
+  cursor: pointer;
+  height: 100%;
+  padding: 10px 20px;
+  margin-bottom: 30px;
+}
+
+.input-container > button:disabled {
+  background-color: #ccc;
 }
 
 .main-bottom > p {
   position: relative;
   margin-bottom: 0;
-  /* font-size: 2vw; */
-  font-size: 25px;
-  padding: 0 10px;
-  color: white;
+  font-size: 1.8rem;
+  padding: 0px 20px;
+  color: rgb(0, 0, 0);
 }

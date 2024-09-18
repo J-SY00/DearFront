@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import UploadImage from "./assets/img_upload.svg";
+import UploadImage from "./assets/imageUpload.png";
 import { uploadImage } from "./api/pageAPI";
 import Button from "./Button";
 
