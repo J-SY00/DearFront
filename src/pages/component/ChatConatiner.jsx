@@ -1,8 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react';
-import Imageupload from "./ChatImageupload"
-import InputContainer from './ChatInputContainer';
-import Message from './ChatMessage';
-import { downloadImage, getImageFromServer } from './api/pageAPI';
+import React, { useState, useRef, useEffect } from "react";
+import Imageupload from "./ChatImageupload";
+import InputContainer from "./ChatInputContainer";
+import Message from "./ChatMessage";
+import { downloadImage, getImageFromServer } from "./api/pageAPI";
 
 export default function ChatContainer({ resetOn, setResetOn, sessionId }) {
   const [imageSelected, setImageSelected] = useState(false);
@@ -12,7 +12,7 @@ export default function ChatContainer({ resetOn, setResetOn, sessionId }) {
   const sendSelectedImage = (imageUrl) => {
     setMessages([
       ...messages,
-      { isBot: false, newMessage: "", isImage: true, imageUrl }
+      { isBot: false, newMessage: "", isImage: true, imageUrl },
     ]);
   };
 
@@ -29,21 +29,35 @@ export default function ChatContainer({ resetOn, setResetOn, sessionId }) {
     ]);
 
     // Fetch image URL from the server
-    const imageUrl = await getImageFromServer(newMessage, sessionId);
+    const serverResponse = await getImageFromServer(newMessage, sessionId);
 
-    // Replace "Loading..." message with image URL or error message
-    setMessages((prevMessages) =>
-      prevMessages.map((message, index) =>
-        index === prevMessages.length - 1
-          ? {
-              isBot: true,
-              newMessage: imageUrl ? "" : "Failed to fetch image.",
-              isImage: Boolean(imageUrl),
-              imageUrl,
-            }
-          : message
-      )
-    );
+    if (serverResponse.type == "text") {
+      setMessages((prevMessages) =>
+        prevMessages.map((message, index) =>
+          index === prevMessages.length - 1
+            ? {
+                isBot: true,
+                newMessage: serverResponse.message,
+                isImage: false,
+              }
+            : message
+        )
+      );
+    } else {
+      // Replace "Loading..." message with image URL or error message
+      setMessages((prevMessages) =>
+        prevMessages.map((message, index) =>
+          index === prevMessages.length - 1
+            ? {
+                isBot: true,
+                newMessage: "",
+                isImage: true,
+                imageUrl: serverResponse.url,
+              }
+            : message
+        )
+      );
+    }
   };
 
   // Scroll to the bottom of the message container whenever messages change

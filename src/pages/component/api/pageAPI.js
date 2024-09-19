@@ -69,27 +69,29 @@ export const uploadImage = async (file, sessionId) => {
 
 // 명령어 전송 및 서버의 답장 받아오는
 export const getImageFromServer = async (newMessage, sessionId) => {
-  let imageUrl = null;
-
   try {
-    // 이미지 생성 요청
-    const response = await api.post(
-      '/imageEdit', { 
-        command_contents: newMessage ,
-      },
-      {
-        headers: {
-          'Session-Id': sessionId,
-        },
+    const response = await api.post('/imageEdit', { command_contents: newMessage }, {
+      headers: {
+        'Session-Id': sessionId,
       }
-    );
-    imageUrl = response.request.responseURL;
-    console.log("수정된 이미지 : ", imageUrl);
-    return imageUrl;
+    });
+
+    if (response.data.type === "text") {
+      console.log("Server message: ", response.data.message);
+      return { type: "text", message: response.data.message };
+    } else if (response.data.type === "image") {
+      console.log("Modified image URL: ", response.data.url);
+      return { type: "image", url: response.data.url };
+    } else {
+      console.log("Error occurred");
+      return { type: "text", message: "Error occurred" };
+    }
   } catch (error) {
-    console.error("수정 이미지 업로드 오류 :", error);
+    console.error("Error processing command:", error);
+    throw error;
   }
 };
+
 
 //이미지 url get
 export const getImageURL = async (imageUrl) => {
