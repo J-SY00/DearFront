@@ -4,6 +4,7 @@ import samplepic_colorpop from "./assets/home_samplepic_colorpop.jpg";
 import samplepic_replace from "./assets/home_samplepic_replace.jpg";
 import samplepic_blur from "./assets/home_samplepic_blur.jpg";
 import samplepic_gqa from "./assets/home_samplepic_gqa.jpg";
+import samplepic_remove from "./assets/home_samplepic_remove.jpeg";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 
@@ -101,7 +102,41 @@ const HomeTutorial = () => {
           <img src={samplepic_gqa} width="1200px" className="edit-image" />
         </div>
         <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
+
+
+      <div id="tutorial-remove" className="tutorial-function">
+        <p className="function-text">REMOVE</p>
+        <p className="tutorial-text">
+        You can remove the background from the photo;
+        or you can remove a specific object that you want to erase.
+        </p>
+        <div className="img-wrapper">
+          <img src={samplepic} width="1200px" className="default-image" />
+          <img src={samplepic_remove} width="1200px" className="edit-image" />
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+      </div>
+
+
 
       <div className="start-button">
         <Button text="Start Now" onClick={() => navigate("/Chat")} />

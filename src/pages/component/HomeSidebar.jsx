@@ -24,6 +24,9 @@ const Sidebar = () => {
         <li onClick={() => scrollToSection("tutorial-?")}>
         GQA
         </li>
+        <li onClick={() => scrollToSection("tutorial-remove")}>
+        REMOVE
+        </li>
       </ul>
     </div>
   );

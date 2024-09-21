@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <header className="home-header">
-      <h1>DEAR IMAGE</h1>
+      <h1 onClick={() => navigate('/')}>DEAR IMAGE</h1>
       <div className="home-button">
         <Button text="Start Now" onClick={() => navigate('/Chat')}/>
       </div>      
@@ -17,3 +17,4 @@ const Header = () => {
 };
 
 export default Header;
+  
