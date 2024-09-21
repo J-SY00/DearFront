@@ -117,8 +117,7 @@ const HomeTutorial = () => {
       <div id="tutorial-remove" className="tutorial-function">
         <p className="function-text">REMOVE</p>
         <p className="tutorial-text">
-        You can remove the background from the photo;
-        or you can remove a specific object that you want to erase.
+        You can remove the background of the object by entering the command.
         </p>
         <div className="img-wrapper">
           <img src={samplepic} width="1200px" className="default-image" />
