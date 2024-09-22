@@ -94,21 +94,24 @@ export const getImageFromServer = async (newMessage, sessionId) => {
 
 
 //이미지 url get
-export const getImageURL = async (imageUrl) => {
+export const getImageURL = async (imageUrl, config = {}) => {
   console.log("Getting Image URL to download:", imageUrl);
   if (!imageUrl.startsWith('http')) {
     imageUrl = api.defaults.baseURL + imageUrl;
   }
   return await api.get(
     imageUrl, { 
-    responseType: 'blob' 
-  });
+      responseType: 'blob',
+      withCredentials: config.withCredentials // Add this
+    }
+  );
 };
+
 
 //이미지 다운로드 버튼
 export const downloadImage = async (imageUrl) => {
   try {
-    const response = await getImageURL(imageUrl);
+    const response = await getImageURL(imageUrl, { withCredentials: true });
     const ImageData = new Blob([response.data], { type: 'image/png' });
     const url = window.URL.createObjectURL(ImageData);
     const link = document.createElement('a');

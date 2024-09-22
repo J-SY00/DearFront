@@ -29,7 +29,7 @@ export default function InputContainer({
 
   return (
     <div className="main-bottom">
-      <p>Keyword for image edit : ColorPop, Blur, Replace</p>
+      <p>Keyword for image edit : ColorPop, Blur, Replace, Remove</p>
       <form onSubmit={handleSubmit} className="input-container">
         <input
           type="text"
