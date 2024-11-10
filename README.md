@@ -54,7 +54,7 @@ Dear Image aims to revolutionize the way users interact with image editing by pr
 
 ## Demo
 
-Check out the demo video showcasing the functionalities of Visprog [here](https://github.com/user-attachments/assets/549055bf-1f29-4349-99d4-77a72ac6e600).
+Check out the demo video showcasing the functionalities of Visprog [here](https://github.com/user-attachments/assets/4034fea8-5430-4be7-a3a6-34533909a674).
 
 
 
